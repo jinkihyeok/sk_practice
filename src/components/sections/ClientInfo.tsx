@@ -1,10 +1,9 @@
-import React from "react";
 import SectionHeader from "../common/SectionHeader";
 
-export default function () {
+export default function ClientInfo () {
     return (
-        <section className="my-2">
+        <div className="my-2 rounded overflow-hidden">
             <SectionHeader title="고객상담 정보" />
-        </section>
+        </div>
     )
 }
