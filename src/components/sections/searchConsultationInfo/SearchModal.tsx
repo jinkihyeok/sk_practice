@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import SectionHeader from "../../common/SectionHeader";
-import {serviceNumberOptions} from "../../../constants";
+import {searchModalTableHeaders, serviceNumberOptions} from "../../../constants";
 import {RightArrowIcon} from "../../ui/Icons";
 import {PhoneNumber, ServiceAccount} from "../../../types";
 import {serviceAccountData} from "../../../dummyData/ServiceAccount";
@@ -72,28 +72,39 @@ export default function SearchModal({
         setSearchedServiceAccounts(foundAccounts);
     };
 
-    const handleApply = () => {
-        if (checkedAccount) {
-            const selectedConsultationInfo = ConsultationInfo.filter(
-                (info) => info.serviceNumber === inputNumber
-            );
+    const applySelectedAccount = (account: ServiceAccount) => {
+        const selectedConsultationInfo = ConsultationInfo.filter(
+            (info) => info.serviceNumber === account.serviceNumber
+        );
 
-            setState((prevState) => ({
-                ...prevState,
-                selectedServiceAccount: checkedAccount,
-                selectedConsultationInfo: selectedConsultationInfo || [],
-            }));
-        }
-        const firstNumber = inputNumber.slice(0, 3);
-        const secondNumber = inputNumber.slice(3, 7);
-        const thirdNumber = inputNumber.slice(7);
+        setState((prevState) => ({
+            ...prevState,
+            selectedServiceAccount: account,
+            selectedConsultationInfo: selectedConsultationInfo || [],
+        }));
+
         setPhoneNumber({
-            firstNumber,
-            secondNumber,
-            thirdNumber
+            firstNumber: account.serviceNumber.slice(0, 3),
+            secondNumber: account.serviceNumber.slice(3, 7),
+            thirdNumber: account.serviceNumber.slice(7),
         });
+
         closeModal();
-    }
+    };
+
+    const handleApply = () => {
+        if (!checkedAccount) {
+            alert("선택된 정보가 없습니다.");
+            return;
+        }
+
+        applySelectedAccount(checkedAccount);
+    };
+
+    const handleDoubleClick = (account: ServiceAccount) => {
+        setCheckedAccount(account);
+        applySelectedAccount(account);
+    };
 
     return (
         <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -148,23 +159,27 @@ export default function SearchModal({
                                 <table className="table-auto border-collapse w-full">
                                     <thead>
                                     <tr className="table-header-style whitespace-nowrap">
-                                        <th className="border">선택</th>
-                                        <th className="border">고객번호</th>
-                                        <th className="border">고객명</th>
-                                        <th className="border">청구계정번호</th>
-                                        <th className="border">청구고객번호</th>
-                                        <th className="border">청구고객명</th>
-                                        <th className="border">서비스계정번호</th>
-                                        <th className="border">납부정보</th>
-                                        <th className="border">청구정보</th>
+                                        {searchModalTableHeaders.map((header, index) => (
+                                            <th key={index} className="border text-center">
+                                                {header}
+                                            </th>
+                                        ))}
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {searchedServiceAccounts.map((account, index) => (
                                         <tr
                                             key={index}
-                                            className={`whitespace-nowrap ${
-                                                index % 2 === 1 ? 'bg-gray-100' : ''
+                                            onClick={() => handleCheckboxChange(account)}
+                                            onDoubleClick={() => {
+                                                handleDoubleClick(account);
+                                            }}
+                                            className={`whitespace-nowrap cursor-pointer ${
+                                                checkedAccount?.serviceNumber === account.serviceNumber
+                                                    ? "text-white bg-yellow-500"
+                                                    : index % 2 === 1
+                                                        ? "bg-gray-100"
+                                                        : ""
                                             }`}
                                         >
                                             <td className="border text-center">
@@ -184,6 +199,20 @@ export default function SearchModal({
                                             <td className="border text-center">{account.billingInfo}</td>
                                         </tr>
                                     ))}
+                                    {Array(12 - searchedServiceAccounts.length)
+                                        .fill(null)
+                                        .map((_, index) => (
+                                            <tr
+                                                key={`empty-${index}`}
+                                                className={`border-b border-gray-200 h-5 ${
+                                                    (searchedServiceAccounts.length + index) % 2 === 0 ? "bg-white" : "bg-gray-50"
+                                                }`}
+                                            >
+                                                {Array.from({length: 9}).map((_, cellIndex) => (
+                                                    <td key={cellIndex} className={`px-1 ${cellIndex === 0 ? "" : "border"}`}></td>
+                                                ))}
+                                            </tr>
+                                        ))}
                                     </tbody>
                                 </table>
                             </div>

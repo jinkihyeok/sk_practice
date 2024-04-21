@@ -55,3 +55,15 @@ export const clientInfoTableHeaders = [
     "사업자번호",
     "사업자명",
 ];
+
+export const searchModalTableHeaders = [
+    "선택",
+    "고객번호",
+    "고객명",
+    "청구계정번호",
+    "청구고객번호",
+    "청구고객명",
+    "서비스계정번호",
+    "납부정보",
+    "청구정보",
+];
