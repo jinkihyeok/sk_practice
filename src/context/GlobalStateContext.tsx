@@ -3,7 +3,7 @@ import { ServiceAccount, ConsultationInfo } from "../types";
 
 interface GlobalState {
     selectedServiceAccount: ServiceAccount | null;
-    selectedConsultationInfo: ConsultationInfo | null;
+    selectedConsultationInfo: ConsultationInfo[] | [];
 }
 
 interface GlobalStateContextProps {
@@ -13,7 +13,7 @@ interface GlobalStateContextProps {
 
 const initialState: GlobalState = {
     selectedServiceAccount: null,
-    selectedConsultationInfo: null,
+    selectedConsultationInfo: [],
 };
 
 export const GlobalStateContext = createContext<GlobalStateContextProps>({

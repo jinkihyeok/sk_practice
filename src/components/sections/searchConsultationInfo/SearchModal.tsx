@@ -74,14 +74,14 @@ export default function SearchModal({
 
     const handleApply = () => {
         if (checkedAccount) {
-            const selectedConsultationInfo = ConsultationInfo.find(
+            const selectedConsultationInfo = ConsultationInfo.filter(
                 (info) => info.serviceNumber === inputNumber
             );
 
             setState((prevState) => ({
                 ...prevState,
                 selectedServiceAccount: checkedAccount,
-                selectedConsultationInfo: selectedConsultationInfo || null,
+                selectedConsultationInfo: selectedConsultationInfo || [],
             }));
         }
         const firstNumber = inputNumber.slice(0, 3);
