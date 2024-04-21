@@ -7,16 +7,16 @@ export default function ClientInfo() {
             <div className="overflow-y-auto" style={{ maxHeight: "200px" }}>
                 <table className="table-auto w-full text-xs">
                     <thead>
-                    <tr className="bg-gray-200 text-gray-600 text-xs">
-                        <th className="py-2 px-4 text-center">선택</th>
-                        <th className="py-2 px-4 text-center">서비스계정번호</th>
-                        <th className="py-2 px-4 text-center">서비스구분</th>
-                        <th className="py-2 px-4 text-center">서비스번호</th>
-                        <th className="py-2 px-4 text-center">서비스상태</th>
-                        <th className="py-2 px-4 text-center">요금제</th>
-                        <th className="py-2 px-4 text-center">단말기</th>
-                        <th className="py-2 px-4 text-center">사업자번호</th>
-                        <th className="py-2 px-4 text-center">사업자명</th>
+                    <tr className="bg-blue-200 text-white text-xs">
+                        <th className="text-center">선택</th>
+                        <th className="text-center">서비스계정번호</th>
+                        <th className="text-center">서비스구분</th>
+                        <th className="text-center">서비스번호</th>
+                        <th className="text-center">서비스상태</th>
+                        <th className="text-center">요금제</th>
+                        <th className="text-center">단말기</th>
+                        <th className="text-center">사업자번호</th>
+                        <th className="text-center">사업자명</th>
                     </tr>
                     </thead>
                     <tbody className="text-gray-600 text-xs text-center">
@@ -29,17 +29,17 @@ export default function ClientInfo() {
                                     index % 2 === 0 ? "bg-white" : "bg-gray-50"
                                 }`}
                             >
-                                <td className="py-2 px-4">
+                                <td className="px-1">
                                     <input type="checkbox" />
                                 </td>
-                                <td className="py-2 px-4">1234567890</td>
-                                <td className="py-2 px-4">휴대폰</td>
-                                <td className="py-2 px-4">010-1234-5678</td>
-                                <td className="py-2 px-4">사용중</td>
-                                <td className="py-2 px-4">5G 스페셜</td>
-                                <td className="py-2 px-4">Galaxy S21</td>
-                                <td className="py-2 px-4">123-45-67890</td>
-                                <td className="py-2 px-4">SK텔레콤</td>
+                                <td className="px-1">1234567890</td>
+                                <td className="px-1">휴대폰</td>
+                                <td className="px-1">010-1234-5678</td>
+                                <td className="px-1">사용중</td>
+                                <td className="px-1">5G 스페셜</td>
+                                <td className="px-1">Galaxy S21</td>
+                                <td className="px-1">123-45-67890</td>
+                                <td className="px-1">SK텔레콤</td>
                             </tr>
                         ))}
                     </tbody>
