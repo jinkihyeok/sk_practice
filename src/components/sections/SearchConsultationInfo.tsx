@@ -40,6 +40,10 @@ export default function SearchConsultationInfo() {
         setThirdNumber(e.target.value);
     }
 
+    const handleSearch = () => {
+        // Implement search logic here
+    }
+
     return (
         <div className="section-style my-2">
             <SectionHeader title="고객상담관리 조회"/>
@@ -78,7 +82,9 @@ export default function SearchConsultationInfo() {
                                 value={thirdNumber}
                                 onChange={handleThirdNumberChange}
                             />
-                            <button className="border p-1 bg-gray-100 rounded">
+                            <button
+                                onClick={handleSearch}
+                                className="border p-1 bg-gray-100 rounded">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      strokeWidth="1.5"
                                      stroke="currentColor" className="w-3 h-3">
@@ -107,11 +113,13 @@ export default function SearchConsultationInfo() {
                             type="text"
                             className="flex-grow input-style"
                         />
-                        <button className="border px-2 text-gray-400 bg-amber-900 rounded whitespace-nowrap">
+                        <button
+                            disabled className="border px-2 text-gray-400 bg-amber-900 rounded whitespace-nowrap">
                             고객인증
                         </button>
                     </div>
                     <button
+                        onClick={handleSearch}
                         className="flex flex-row items-center justify-between text-sm bg-amber-900 text-gray-300 px-2 rounded ml-5">
                         <span className="whitespace-nowrap font-light">조회</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
