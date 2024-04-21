@@ -43,67 +43,77 @@ export default function SearchConsultationInfo() {
     return (
         <div className="my-2 rounded overflow-hidden">
             <SectionHeader title="고객상담관리 조회"/>
-            <div className="flex flex-row items-center gap-2 border-2 pl-10 py-2 text-neutral-500 text-sm">
-                <h3>조회구분</h3>
-                <form className="flex flex-row justify-between items-center">
-                    <select className="w-32 border-2 border-neutral-300 bg-purple-100 outline-none"
-                            value={selectedOption?.value}
-                            onChange={handleSelectChange}>
-                        {serviceNumberOptions.map(option => (
-                            <option key={option.value} value={option.value}>
-                                {option.label}
-                            </option>
-                        ))}
-                    </select>
-                    <select className="w-16 border-2 border-neutral-300 bg-purple-100 outline-none"
-                            value={selectedFirstNumber?.value}
-                            onChange={handleFirstNumberChange}>
-                        {firstNumberOptions.map(option => (
-                            <option key={option.value} value={option.value}>
-                                {option.label}
-                            </option>
-                        ))}
-                    </select>
-                    <input
-                        type="text"
-                        className="w-16 border-2 border-neutral-300 bg-purple-100 outline-none"
-                        value={secondNumber}
-                        onChange={handleSecondNumberChange}
-                    />
-                    <input
-                        type="text"
-                        className="w-16 border-2 border-neutral-300 bg-purple-100 outline-none"
-                        value={thirdNumber}
-                        onChange={handleThirdNumberChange}
-                    />
-                    <button className="border p-1 ml-1 bg-gray-100 rounded">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                             stroke="currentColor" className="w-3 h-3">
-                            <path strokeLinecap="round" strokeLinejoin="round"
-                                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
-                        </svg>
-                    </button>
-                    <h3 className="ml-8">고객명</h3>
-                    <div className="flex flex-row ml-1">
-                        <input
-                            type="text"
-                            className="w-36 border-2 border-neutral-300 bg-purple-100 outline-none"
-                        />
-                        <input
-                            type="text"
-                            className="w-10 border-2 border-neutral-300 bg-purple-100 outline-none"
-                        />
+            <div className="flex flex-row w-full items-center border-2 py-2 text-neutral-500 text-xs">
+                <form className="flex flex-row justify-between items-center w-full ml-5 mr-3">
+                    <div className="flex flex-row items-center gap-2 flex-grow">
+                        <h3 className="whitespace-nowrap">조회구분</h3>
+                        <div className="flex flex-grow">
+                            <select className="flex-grow border-2 border-neutral-300 bg-purple-100 outline-none"
+                                    value={selectedOption?.value}
+                                    onChange={handleSelectChange}>
+                                {serviceNumberOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </select>
+                            <select className="w-1/6 border-2 border-neutral-300 bg-purple-100 outline-none"
+                                    value={selectedFirstNumber?.value}
+                                    onChange={handleFirstNumberChange}>
+                                {firstNumberOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </select>
+                            <input
+                                type="text"
+                                className="w-1/6 border-2 border-neutral-300 bg-purple-100 outline-none"
+                                value={secondNumber}
+                                onChange={handleSecondNumberChange}
+                            />
+                            <input
+                                type="text"
+                                className="w-1/6 border-2 border-neutral-300 bg-purple-100 outline-none"
+                                value={thirdNumber}
+                                onChange={handleThirdNumberChange}
+                            />
+                            <button className="border p-1 bg-gray-100 rounded">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     strokeWidth="1.5"
+                                     stroke="currentColor" className="w-3 h-3">
+                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
-                    <h3>생년/법인/사업자 번호</h3>
-                    <input
-                        type="text"
-                        className="w-36 border-2 border-neutral-300 bg-purple-100 outline-none"
-                    />
-                    <button className="border px-2 text-gray-400 bg-amber-900 rounded">
-                        고객인증
-                    </button>
-                    <button className="flex flex-row items-center justify-between bg-amber-900 text-gray-300 px-4 rounded">
-                        <span>조회</span>
+                    <div className="flex flex-row flex-grow items-center gap-2 ml-3">
+                        <h3 className="whitespace-nowrap">고객명</h3>
+                        <div className="flex flex-row flex-grow">
+                            <input
+                                type="text"
+                                className="flex-grow border-2 border-neutral-300 bg-purple-100 outline-none"
+                            />
+                            <input
+                                type="text"
+                                className="w-8 border-2 border-neutral-300 bg-purple-100 outline-none"
+                            />
+                        </div>
+                    </div>
+                    <div className="flex flex-row flex-grow items-center gap-2 ml-1">
+                        <h3 className="whitespace-nowrap">생년/법인/사업자 번호</h3>
+                        <input
+                            type="text"
+                            className="flex-grow border-2 border-neutral-300 bg-purple-100 outline-none"
+                        />
+                        <button className="border px-2 text-gray-400 bg-amber-900 rounded whitespace-nowrap">
+                            고객인증
+                        </button>
+                    </div>
+                    <button
+                        className="flex flex-row items-center justify-between text-sm bg-amber-900 text-gray-300 px-2 rounded ml-5">
+                        <span className="whitespace-nowrap">조회</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                              stroke="currentColor" className="w-3 h-3 ml-2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
@@ -112,5 +122,5 @@ export default function SearchConsultationInfo() {
                 </form>
             </div>
         </div>
-    )
+    );
 }
