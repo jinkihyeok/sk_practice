@@ -5,14 +5,14 @@ import BillingInfo from "./components/sections/BillingInfo";
 import PaymentInfo from "./components/sections/PaymentInfo";
 import SaveConsultation from "./components/sections/SaveConsultation";
 import ConsultationHistory from "./components/sections/ConsultationHistory";
-import SearchConsultationInfo from "./components/sections/SearchConsultationInfo";
+import SearchConsultationInfo from "./components/sections/searchConsultationInfo/SearchConsultationInfo";
 import ConsultDetailInfo from "./components/sections/ConsultDetailInfo";
 
 const App: React.FC = () => {
     return (
         <div className="mx-auto">
             <Header title="고객상담"/>
-            <SearchConsultationInfo/>
+                <SearchConsultationInfo/>
             <ClientInfo/>
             <div className="grid grid-cols-2 gap-3 my-2">
                 <ConsultDetailInfo/>

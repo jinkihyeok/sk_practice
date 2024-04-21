@@ -1,8 +1,11 @@
-import SectionHeader from "../common/SectionHeader";
+import SectionHeader from "../../common/SectionHeader";
 import React, {useState} from "react";
-import {firstNumberOptions, serviceNumberOptions} from "../../constants";
+import {firstNumberOptions, serviceNumberOptions} from "../../../constants";
+import {RightArrowIcon} from "../../ui/Icons";
+import SearchModal from "./SearchModal";
 
 export default function SearchConsultationInfo() {
+
     const [selectedOption, setSelectedOption] = useState<{
         value: string,
         label: string
@@ -15,6 +18,7 @@ export default function SearchConsultationInfo() {
 
     const [secondNumber, setSecondNumber] = useState<string>('');
     const [thirdNumber, setThirdNumber] = useState<string>('');
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedValue = e.target.value;
@@ -40,11 +44,14 @@ export default function SearchConsultationInfo() {
         setThirdNumber(e.target.value);
     }
 
-    const handleSearch = () => {
-        // Implement search logic here
-    }
+    const handleSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsModalOpen(true);
+    };
 
     return (
+        <>
         <div className="section-style my-2">
             <SectionHeader title="고객상담관리 조회"/>
             <div className="flex flex-row w-full items-center border-2 py-2 text-neutral-500 text-xs">
@@ -83,7 +90,7 @@ export default function SearchConsultationInfo() {
                                 onChange={handleThirdNumberChange}
                             />
                             <button
-                                onClick={handleSearch}
+                                onClick={(e) => handleSearch(e)}
                                 className="border p-1 bg-gray-100 rounded">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      strokeWidth="1.5"
@@ -119,16 +126,15 @@ export default function SearchConsultationInfo() {
                         </button>
                     </div>
                     <button
-                        onClick={handleSearch}
+                        onClick={(e) => handleSearch(e)}
                         className="flex flex-row items-center justify-between text-sm bg-amber-900 text-gray-300 px-2 rounded ml-5">
                         <span className="whitespace-nowrap font-light">조회</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                             stroke="currentColor" className="w-3 h-3 ml-2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
-                        </svg>
+                        <RightArrowIcon/>
                     </button>
                 </form>
             </div>
         </div>
+            {isModalOpen && <SearchModal setIsModalOpen={setIsModalOpen} selectedOption={selectedOption} setSelectedOption={setSelectedOption}/>}
+        </>
     );
 }

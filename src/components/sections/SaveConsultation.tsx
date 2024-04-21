@@ -1,5 +1,6 @@
 import React from "react";
 import SectionHeader from "../common/SectionHeader";
+import {RightArrowIcon} from "../ui/Icons";
 
 export default function SaveConsultation() {
     return (
@@ -34,7 +35,10 @@ export default function SaveConsultation() {
                     <select className="input-style !bg-purple-100 flex-grow"/>
                     <h3 className="whitespace-nowrap">관계</h3>
                     <select className="input-style !bg-purple-100 flex-grow"/>
-                    <button className="btn-style px-2 h-full">저장</button>
+                    <button className="btn-style px-2 h-full flex flex-row items-center">
+                        <h3>저장</h3>
+                        <RightArrowIcon/>
+                    </button>
                 </div>
             </div>
         </div>
