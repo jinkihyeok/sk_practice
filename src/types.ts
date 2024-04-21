@@ -16,3 +16,14 @@ export interface ServiceAccount {
     paymentInfo: string;
     billingInfo: string;
 }
+
+export interface ConsultationInfo {
+    serviceNumber: string;
+    accountNumber: string;
+    serviceType: string;
+    serviceStatus: string;
+    ratePlan: string;
+    device: string;
+    businessNumber: string;
+    businessName: string;
+}

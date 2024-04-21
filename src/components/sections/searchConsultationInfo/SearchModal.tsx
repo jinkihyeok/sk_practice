@@ -4,7 +4,8 @@ import {serviceNumberOptions} from "../../../constants";
 import {RightArrowIcon} from "../../ui/Icons";
 import {PhoneNumber, ServiceAccount} from "../../../types";
 import {serviceAccountData} from "../../../dummyData/ServiceAccount";
-import {ServiceAccountContext} from "../../../context/ServiceAccountContext";
+import {GlobalStateContext} from "../../../context/GlobalStateContext";
+import {ConsultationInfo} from "../../../dummyData/ConsultationInfo";
 
 interface SearchModalProps {
     setIsModalOpen: (isOpen: boolean) => void;
@@ -31,7 +32,7 @@ export default function SearchModal({
     const [searchedServiceAccounts, setSearchedServiceAccounts] = useState<ServiceAccount[]>([]);
     const [inputNumber, setInputNumber] = useState('');
     const [checkedAccount, setCheckedAccount] = useState<ServiceAccount | null>(null);
-    const { selectedServiceAccount, setSelectedServiceAccount } = useContext(ServiceAccountContext);
+    const { setState } = useContext(GlobalStateContext);
 
     useEffect(() => {
         setInputNumber(`${phoneNumber.firstNumber}${phoneNumber.secondNumber}${phoneNumber.thirdNumber}`);
@@ -73,7 +74,15 @@ export default function SearchModal({
 
     const handleApply = () => {
         if (checkedAccount) {
-            setSelectedServiceAccount(checkedAccount);
+            const selectedConsultationInfo = ConsultationInfo.find(
+                (info) => info.serviceNumber === inputNumber
+            );
+
+            setState((prevState) => ({
+                ...prevState,
+                selectedServiceAccount: checkedAccount,
+                selectedConsultationInfo: selectedConsultationInfo || null,
+            }));
         }
         const firstNumber = inputNumber.slice(0, 3);
         const secondNumber = inputNumber.slice(3, 7);
@@ -83,8 +92,6 @@ export default function SearchModal({
             secondNumber,
             thirdNumber
         });
-        console.log('selectedServiceAccount:', selectedServiceAccount);
-        console.log('phoneNumber:', phoneNumber);
         closeModal();
     }
 

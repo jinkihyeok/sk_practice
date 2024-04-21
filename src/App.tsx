@@ -7,11 +7,11 @@ import SaveConsultation from "./components/sections/SaveConsultation";
 import ConsultationHistory from "./components/sections/ConsultationHistory";
 import SearchConsultationInfo from "./components/sections/searchConsultationInfo/SearchConsultationInfo";
 import ConsultDetailInfo from "./components/sections/ConsultDetailInfo";
-import {ServiceAccountProvider} from "./context/ServiceAccountContext";
+import {GlobalStateProvider} from "./context/GlobalStateContext";
 
 const App: React.FC = () => {
     return (
-        <ServiceAccountProvider>
+        <GlobalStateProvider>
             <div className="mx-auto">
                 <Header title="고객상담"/>
                 <SearchConsultationInfo/>
@@ -26,7 +26,7 @@ const App: React.FC = () => {
                 </div>
                 <ConsultationHistory/>
             </div>
-        </ServiceAccountProvider>
+        </GlobalStateProvider>
     );
 };
 

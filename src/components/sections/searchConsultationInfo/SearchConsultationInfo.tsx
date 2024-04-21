@@ -4,14 +4,14 @@ import {firstNumberOptions, serviceNumberOptions} from "../../../constants";
 import {RightArrowIcon} from "../../ui/Icons";
 import SearchModal from "./SearchModal";
 import {PhoneNumber} from "../../../types";
-import {ServiceAccountContext} from "../../../context/ServiceAccountContext";
+import {GlobalStateContext} from "../../../context/GlobalStateContext";
 
 export default function SearchConsultationInfo() {
 
     const [selectedOption, setSelectedOption] = useState<{value: string, label: string } | undefined>(serviceNumberOptions.find(option => option.isDefault));
     const [phoneNumber, setPhoneNumber] = useState<PhoneNumber>({firstNumber: firstNumberOptions[0].value, secondNumber: '', thirdNumber: ''});
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const {selectedServiceAccount} = useContext(ServiceAccountContext);
+    const {state} = useContext(GlobalStateContext);
 
     const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedValue = e.target.value;
@@ -97,13 +97,13 @@ export default function SearchConsultationInfo() {
                                 <input
                                     type="text"
                                     className="flex-grow input-style"
-                                    value={selectedServiceAccount?.customerName}
+                                    value={state.selectedServiceAccount?.customerName}
                                     disabled
                                 />
                                 <input
                                     type="text"
                                     className="w-8 input-style"
-                                    value={selectedServiceAccount?.gender}
+                                    value={state.selectedServiceAccount?.gender}
                                     disabled
                                 />
                             </div>
@@ -113,7 +113,7 @@ export default function SearchConsultationInfo() {
                             <input
                                 type="text"
                                 className="flex-grow input-style"
-                                value={selectedServiceAccount?.customerNumber.replace(/\d/g, '*')}
+                                value={state.selectedServiceAccount?.customerNumber.replace(/\d/g, '*')}
                                 disabled
                             />
                             <button
