@@ -3,20 +3,20 @@ import SectionHeader from "../common/SectionHeader";
 
 export default function BillingInfo() {
     return (
-        <div className="section-style col-span-1 bg-yellow-200 flex flex-col">
+        <div className="section-style col-span-1 flex flex-col text-xs">
             <SectionHeader title="청구정보"/>
             <div className="flex flex-col w-full flex-grow">
                 <div className="overflow-y-auto">
-                    <table className="table-auto w-full text-xs">
+                    <table className="table-auto w-full">
                         <thead>
-                        <tr className="bg-blue-200 text-white text-xs">
+                        <tr className="table-header-style">
                             <th className="text-center">청구일자</th>
                             <th className="text-center">청구금액(절사)</th>
                             <th className="text-center">미납잔액</th>
                             <th className="text-center">서비스수</th>
                         </tr>
                         </thead>
-                        <tbody className="text-gray-600 text-xs text-center">
+                        <tbody className="text-gray-600 text-center">
                         {Array(5)
                             .fill(null)
                             .map((_, index) => (
@@ -26,10 +26,10 @@ export default function BillingInfo() {
                                         index % 2 === 0 ? "bg-white" : "bg-gray-50"
                                     }`}
                                 >
-                                    <td className="px-1">2023-02-28</td>
-                                    <td className="px-1">7,700</td>
-                                    <td className="px-1">7,700</td>
-                                    <td className="px-1">1</td>
+                                    <td className="px-1 border">2023-02-28</td>
+                                    <td className="px-1 border">7,700</td>
+                                    <td className="px-1 border">7,700</td>
+                                    <td className="px-1 border">1</td>
                                 </tr>
                             ))}
                         </tbody>

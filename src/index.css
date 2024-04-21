@@ -19,5 +19,9 @@ body {
 }
 
 .section-style {
-    @apply rounded-sm overflow-hidden
+    @apply rounded-sm overflow-hidden;
+}
+
+.table-header-style {
+    @apply bg-indigo-300 text-white;
 }

@@ -4,10 +4,10 @@ export default function ClientInfo() {
     return (
         <div className="section-style">
             <SectionHeader title="고객상담 정보" />
-            <div className="overflow-y-auto" style={{ maxHeight: "200px" }}>
-                <table className="table-auto w-full text-xs">
+            <div className="overflow-y-auto text-xs" style={{ maxHeight: "200px" }}>
+                <table className="table-auto w-full">
                     <thead>
-                    <tr className="bg-blue-200 text-white text-xs">
+                    <tr className="table-header-style">
                         <th className="text-center">선택</th>
                         <th className="text-center">서비스계정번호</th>
                         <th className="text-center">서비스구분</th>
@@ -19,7 +19,7 @@ export default function ClientInfo() {
                         <th className="text-center">사업자명</th>
                     </tr>
                     </thead>
-                    <tbody className="text-gray-600 text-xs text-center">
+                    <tbody className="text-gray-600 text-center">
                     {Array(4)
                         .fill(null)
                         .map((_, index) => (
@@ -32,14 +32,14 @@ export default function ClientInfo() {
                                 <td className="px-1">
                                     <input type="checkbox" />
                                 </td>
-                                <td className="px-1">1234567890</td>
-                                <td className="px-1">휴대폰</td>
-                                <td className="px-1">010-1234-5678</td>
-                                <td className="px-1">사용중</td>
-                                <td className="px-1">5G 스페셜</td>
-                                <td className="px-1">Galaxy S21</td>
-                                <td className="px-1">123-45-67890</td>
-                                <td className="px-1">SK텔레콤</td>
+                                <td className="px-1 border">1234567890</td>
+                                <td className="px-1 border">휴대폰</td>
+                                <td className="px-1 border">010-1234-5678</td>
+                                <td className="px-1 border">사용중</td>
+                                <td className="px-1 border">5G 스페셜</td>
+                                <td className="px-1 border">Galaxy S21</td>
+                                <td className="px-1 border">123-45-67890</td>
+                                <td className="px-1 border">SK텔레콤</td>
                             </tr>
                         ))}
                     </tbody>
