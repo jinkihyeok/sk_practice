@@ -7,23 +7,26 @@ import SaveConsultation from "./components/sections/SaveConsultation";
 import ConsultationHistory from "./components/sections/ConsultationHistory";
 import SearchConsultationInfo from "./components/sections/searchConsultationInfo/SearchConsultationInfo";
 import ConsultDetailInfo from "./components/sections/ConsultDetailInfo";
+import {ServiceAccountProvider} from "./context/ServiceAccountContext";
 
 const App: React.FC = () => {
     return (
-        <div className="mx-auto">
-            <Header title="고객상담"/>
+        <ServiceAccountProvider>
+            <div className="mx-auto">
+                <Header title="고객상담"/>
                 <SearchConsultationInfo/>
-            <ClientInfo/>
-            <div className="grid grid-cols-2 gap-3 my-2">
-                <ConsultDetailInfo/>
-                <BillingInfo/>
+                <ClientInfo/>
+                <div className="grid grid-cols-2 gap-3 my-2">
+                    <ConsultDetailInfo/>
+                    <BillingInfo/>
+                </div>
+                <div className="grid grid-cols-5 gap-3 my-2">
+                    <PaymentInfo/>
+                    <SaveConsultation/>
+                </div>
+                <ConsultationHistory/>
             </div>
-            <div className="grid grid-cols-5 gap-3 my-2">
-                <PaymentInfo/>
-                <SaveConsultation/>
-            </div>
-            <ConsultationHistory/>
-        </div>
+        </ServiceAccountProvider>
     );
 };
 

@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import SectionHeader from "../../common/SectionHeader";
 import {serviceNumberOptions} from "../../../constants";
 import {RightArrowIcon} from "../../ui/Icons";
 import {PhoneNumber, ServiceAccount} from "../../../types";
 import {serviceAccountData} from "../../../dummyData/ServiceAccount";
+import {ServiceAccountContext} from "../../../context/ServiceAccountContext";
 
 interface SearchModalProps {
     setIsModalOpen: (isOpen: boolean) => void;
@@ -17,8 +18,6 @@ interface SearchModalProps {
     }) => void;
     phoneNumber: PhoneNumber;
     setPhoneNumber: (phoneNumber: PhoneNumber) => void;
-    selectedServiceAccount: ServiceAccount | null;
-    setSelectedServiceAccount: (selectedServiceAccount: ServiceAccount | null) => void
 }
 
 export default function SearchModal({
@@ -27,13 +26,12 @@ export default function SearchModal({
                                         selectedOption,
                                         phoneNumber,
                                         setPhoneNumber,
-                                        selectedServiceAccount,
-                                        setSelectedServiceAccount
                                     }: SearchModalProps) {
 
     const [searchedServiceAccounts, setSearchedServiceAccounts] = useState<ServiceAccount[]>([]);
     const [inputNumber, setInputNumber] = useState('');
     const [checkedAccount, setCheckedAccount] = useState<ServiceAccount | null>(null);
+    const { selectedServiceAccount, setSelectedServiceAccount } = useContext(ServiceAccountContext);
 
     useEffect(() => {
         setInputNumber(`${phoneNumber.firstNumber}${phoneNumber.secondNumber}${phoneNumber.thirdNumber}`);

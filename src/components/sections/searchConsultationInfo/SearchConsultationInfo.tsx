@@ -1,24 +1,17 @@
 import SectionHeader from "../../common/SectionHeader";
-import React, {useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {firstNumberOptions, serviceNumberOptions} from "../../../constants";
 import {RightArrowIcon} from "../../ui/Icons";
 import SearchModal from "./SearchModal";
-import {PhoneNumber, ServiceAccount} from "../../../types";
+import {PhoneNumber} from "../../../types";
+import {ServiceAccountContext} from "../../../context/ServiceAccountContext";
 
 export default function SearchConsultationInfo() {
 
-    const [selectedOption, setSelectedOption] = useState<{
-        value: string,
-        label: string
-    } | undefined>(serviceNumberOptions.find(option => option.isDefault));
-
-    const [phoneNumber, setPhoneNumber] = useState<PhoneNumber>({
-        firstNumber: firstNumberOptions[0].value,
-        secondNumber: '',
-        thirdNumber: ''
-    });
-    const [selectedServiceAccount, setSelectedServiceAccount] = useState<ServiceAccount | null>(null);
+    const [selectedOption, setSelectedOption] = useState<{value: string, label: string } | undefined>(serviceNumberOptions.find(option => option.isDefault));
+    const [phoneNumber, setPhoneNumber] = useState<PhoneNumber>({firstNumber: firstNumberOptions[0].value, secondNumber: '', thirdNumber: ''});
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const {selectedServiceAccount, setSelectedServiceAccount} = useContext(ServiceAccountContext);
 
     const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedValue = e.target.value;
@@ -134,7 +127,6 @@ export default function SearchConsultationInfo() {
             {isModalOpen && <SearchModal setIsModalOpen={setIsModalOpen} selectedOption={selectedOption}
                                          setSelectedOption={setSelectedOption} phoneNumber={phoneNumber}
                                          setPhoneNumber={setPhoneNumber}
-                                         selectedServiceAccount={selectedServiceAccount} setSelectedServiceAccount={setSelectedServiceAccount}
             />}
         </>
     );
