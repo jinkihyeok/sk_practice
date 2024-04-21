@@ -1,5 +1,5 @@
 import SectionHeader from "../../common/SectionHeader";
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useState} from "react";
 import {firstNumberOptions, serviceNumberOptions} from "../../../constants";
 import {RightArrowIcon} from "../../ui/Icons";
 import SearchModal from "./SearchModal";
@@ -11,7 +11,7 @@ export default function SearchConsultationInfo() {
     const [selectedOption, setSelectedOption] = useState<{value: string, label: string } | undefined>(serviceNumberOptions.find(option => option.isDefault));
     const [phoneNumber, setPhoneNumber] = useState<PhoneNumber>({firstNumber: firstNumberOptions[0].value, secondNumber: '', thirdNumber: ''});
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const {selectedServiceAccount, setSelectedServiceAccount} = useContext(ServiceAccountContext);
+    const {selectedServiceAccount} = useContext(ServiceAccountContext);
 
     const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedValue = e.target.value;
@@ -97,10 +97,14 @@ export default function SearchConsultationInfo() {
                                 <input
                                     type="text"
                                     className="flex-grow input-style"
+                                    value={selectedServiceAccount?.customerName}
+                                    disabled
                                 />
                                 <input
                                     type="text"
                                     className="w-8 input-style"
+                                    value={selectedServiceAccount?.gender}
+                                    disabled
                                 />
                             </div>
                         </div>
@@ -109,6 +113,8 @@ export default function SearchConsultationInfo() {
                             <input
                                 type="text"
                                 className="flex-grow input-style"
+                                value={selectedServiceAccount?.customerNumber.replace(/\d/g, '*')}
+                                disabled
                             />
                             <button
                                 disabled className="border px-2 text-gray-400 bg-amber-900 rounded whitespace-nowrap">

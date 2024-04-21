@@ -8,6 +8,7 @@ export interface ServiceAccount {
     serviceNumber: string;
     customerNumber: string;
     customerName: string;
+    gender: string;
     billingAccountNumber: string;
     billingCustomerNumber: string;
     billingCustomerName: string;
