@@ -43,3 +43,15 @@ export const consultationHistoryTableHeaders = [
     ],
     ["발송일", "발송시각", "처리상태", "발송메시지", "회선번호", "발송자사번", "발송자명"],
 ];
+
+export const clientInfoTableHeaders = [
+    "선택",
+    "서비스계정번호",
+    "서비스구분",
+    "서비스번호",
+    "서비스상태",
+    "요금제",
+    "단말기",
+    "사업자번호",
+    "사업자명",
+];

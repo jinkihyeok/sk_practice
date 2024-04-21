@@ -1,6 +1,7 @@
 import SectionHeader from "../common/SectionHeader";
 import { useContext } from "react";
 import { GlobalStateContext } from "../../context/GlobalStateContext";
+import {clientInfoTableHeaders} from "../../constants";
 
 export default function ClientInfo() {
     const { state } = useContext(GlobalStateContext);
@@ -13,15 +14,9 @@ export default function ClientInfo() {
                 <table className="table-auto w-full">
                     <thead>
                     <tr className="table-header-style">
-                        <th className="text-center">선택</th>
-                        <th className="text-center">서비스계정번호</th>
-                        <th className="text-center">서비스구분</th>
-                        <th className="text-center">서비스번호</th>
-                        <th className="text-center">서비스상태</th>
-                        <th className="text-center">요금제</th>
-                        <th className="text-center">단말기</th>
-                        <th className="text-center">사업자번호</th>
-                        <th className="text-center">사업자명</th>
+                        {clientInfoTableHeaders.map((header, index) => (
+                            <th key={index} className="px-1 border">{header}</th>
+                        ))}
                     </tr>
                     </thead>
                     <tbody className="text-gray-600 text-center">
@@ -54,15 +49,9 @@ export default function ClientInfo() {
                                     (consultationInfoList.length + index) % 2 === 0 ? "bg-white" : "bg-gray-50"
                                 }`}
                             >
-                                <td className="px-1"></td>
-                                <td className="px-1 border"></td>
-                                <td className="px-1 border"></td>
-                                <td className="px-1 border"></td>
-                                <td className="px-1 border"></td>
-                                <td className="px-1 border"></td>
-                                <td className="px-1 border"></td>
-                                <td className="px-1 border"></td>
-                                <td className="px-1 border"></td>
+                                {Array.from({length: 9}).map((_, cellIndex) => (
+                                    <td key={cellIndex} className={`px-1 ${cellIndex === 0 ? "" : "border"}`}></td>
+                                ))}
                             </tr>
                         ))}
                     </tbody>
