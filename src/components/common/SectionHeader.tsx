@@ -12,7 +12,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ title }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
             </svg>
 
-            <h2 className="font-semibold">{title}</h2>
+            <h2>{title}</h2>
         </div>
     );
 };

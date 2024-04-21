@@ -2,7 +2,7 @@ import SectionHeader from "../common/SectionHeader";
 
 export default function ClientInfo() {
     return (
-        <div className="my-2 rounded overflow-hidden">
+        <div className="section-style">
             <SectionHeader title="고객상담 정보" />
             <div className="overflow-y-auto" style={{ maxHeight: "200px" }}>
                 <table className="table-auto w-full text-xs">

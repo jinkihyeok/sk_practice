@@ -41,14 +41,14 @@ export default function SearchConsultationInfo() {
     }
 
     return (
-        <div className="my-2 rounded overflow-hidden">
+        <div className="section-style my-2">
             <SectionHeader title="고객상담관리 조회"/>
             <div className="flex flex-row w-full items-center border-2 py-2 text-neutral-500 text-xs">
                 <form className="flex flex-row justify-between items-center w-full ml-5 mr-3">
                     <div className="flex flex-row items-center gap-2 flex-grow">
                         <h3 className="whitespace-nowrap">조회구분</h3>
                         <div className="flex flex-grow">
-                            <select className="flex-grow border-2 border-neutral-300 bg-purple-100 outline-none"
+                            <select className="flex-grow border border-gray-300 bg-purple-100 outline-none"
                                     value={selectedOption?.value}
                                     onChange={handleSelectChange}>
                                 {serviceNumberOptions.map(option => (
@@ -57,7 +57,7 @@ export default function SearchConsultationInfo() {
                                     </option>
                                 ))}
                             </select>
-                            <select className="w-1/6 border-2 border-neutral-300 bg-purple-100 outline-none"
+                            <select className="w-1/6 border border-gray-300 bg-purple-100 outline-none"
                                     value={selectedFirstNumber?.value}
                                     onChange={handleFirstNumberChange}>
                                 {firstNumberOptions.map(option => (
@@ -68,13 +68,13 @@ export default function SearchConsultationInfo() {
                             </select>
                             <input
                                 type="text"
-                                className="w-1/6 border-2 border-neutral-300 bg-purple-100 outline-none"
+                                className="w-1/6 border border-gray-300 bg-purple-100 outline-none"
                                 value={secondNumber}
                                 onChange={handleSecondNumberChange}
                             />
                             <input
                                 type="text"
-                                className="w-1/6 border-2 border-neutral-300 bg-purple-100 outline-none"
+                                className="w-1/6 border border-gray-300 bg-purple-100 outline-none"
                                 value={thirdNumber}
                                 onChange={handleThirdNumberChange}
                             />
@@ -93,11 +93,11 @@ export default function SearchConsultationInfo() {
                         <div className="flex flex-row flex-grow">
                             <input
                                 type="text"
-                                className="flex-grow border-2 border-neutral-300 bg-purple-100 outline-none"
+                                className="flex-grow input-style"
                             />
                             <input
                                 type="text"
-                                className="w-8 border-2 border-neutral-300 bg-purple-100 outline-none"
+                                className="w-8 input-style"
                             />
                         </div>
                     </div>
@@ -105,7 +105,7 @@ export default function SearchConsultationInfo() {
                         <h3 className="whitespace-nowrap">생년/법인/사업자 번호</h3>
                         <input
                             type="text"
-                            className="flex-grow border-2 border-neutral-300 bg-purple-100 outline-none"
+                            className="flex-grow input-style"
                         />
                         <button className="border px-2 text-gray-400 bg-amber-900 rounded whitespace-nowrap">
                             고객인증
@@ -113,7 +113,7 @@ export default function SearchConsultationInfo() {
                     </div>
                     <button
                         className="flex flex-row items-center justify-between text-sm bg-amber-900 text-gray-300 px-2 rounded ml-5">
-                        <span className="whitespace-nowrap">조회</span>
+                        <span className="whitespace-nowrap font-light">조회</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                              stroke="currentColor" className="w-3 h-3 ml-2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>

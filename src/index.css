@@ -8,3 +8,16 @@ body {
     margin: 0 auto;
     padding: 0 1rem;
 }
+
+
+.input-style {
+    @apply border border-gray-300 bg-gray-200 px-1 text-xs outline-none;
+}
+
+.btn-style {
+    @apply bg-amber-900 text-gray-300 font-light rounded-sm whitespace-nowrap;
+}
+
+.section-style {
+    @apply rounded-sm overflow-hidden
+}

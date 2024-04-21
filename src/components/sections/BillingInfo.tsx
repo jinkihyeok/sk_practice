@@ -3,8 +3,8 @@ import SectionHeader from "../common/SectionHeader";
 
 export default function BillingInfo() {
     return (
-        <section className="my-2">
-            <SectionHeader title="청구정보" />
-        </section>
+        <div className="section-style col-span-1">
+            <SectionHeader title="청구정보"/>
+        </div>
     )
 }
