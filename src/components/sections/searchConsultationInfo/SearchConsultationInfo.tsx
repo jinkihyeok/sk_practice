@@ -3,12 +3,12 @@ import React, {useContext, useState} from "react";
 import {firstNumberOptions, serviceNumberOptions} from "../../../constants";
 import {RightArrowIcon} from "../../ui/Icons";
 import SearchModal from "./SearchModal";
-import {PhoneNumber} from "../../../types";
+import {PhoneNumber, SelectOptionType} from "../../../types";
 import {GlobalStateContext} from "../../../context/GlobalStateContext";
 
 export default function SearchConsultationInfo() {
 
-    const [selectedOption, setSelectedOption] = useState<{value: string, label: string } | undefined>(serviceNumberOptions.find(option => option.isDefault));
+    const [selectedOption, setSelectedOption] = useState<SelectOptionType | undefined>(serviceNumberOptions.find(option => option.isDefault));
     const [phoneNumber, setPhoneNumber] = useState<PhoneNumber>({firstNumber: firstNumberOptions[0].value, secondNumber: '', thirdNumber: ''});
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const {state} = useContext(GlobalStateContext);

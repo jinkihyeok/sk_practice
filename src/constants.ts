@@ -1,4 +1,6 @@
-export const serviceNumberOptions = [
+import {SelectOptionType} from "./types";
+
+export const serviceNumberOptions: SelectOptionType[] = [
     {value: 'service_number', label: '서비스번호', isDefault: true},
     {value: 'corporate_number', label: '법인번호'},
     {value: 'business_number', label: '사업자번호'},
@@ -7,14 +9,14 @@ export const serviceNumberOptions = [
     {value: 'customer_account_number', label: '고객계정번호'}
 ];
 
-export const firstNumberOptions = [
+export const firstNumberOptions: SelectOptionType[] = [
     {value: '010', label: '010'}
 ];
 
 export const consultationHistoryTabs = [
-    { title: "고객상담이력" },
-    { title: "미납상담이력" },
-    { title: "SMS전송이력" },
+    {title: "고객상담이력"},
+    {title: "미납상담이력"},
+    {title: "SMS전송이력"},
 ];
 
 export const consultationHistoryTableHeaders = [
@@ -66,4 +68,28 @@ export const searchModalTableHeaders = [
     "서비스계정번호",
     "납부정보",
     "청구정보",
+];
+
+export const contactTypeOptions: SelectOptionType[] = [
+    {value: 'in', label: 'In', isDefault: true},
+    {value: 'out', label: 'Out'},
+    {value: 'sms', label: 'SMS'},
+    {value: 'post', label: '우편'},
+    {value: 'visit', label: '방문'},
+    {value: 'email', label: '이메일'},
+    {value: 'fax', label: '팩스'},
+    {value: 'etc', label: '기타'},
+];
+
+export const relationOptions: SelectOptionType[] = [
+    {value: 'self', label: '본인', isDefault: true},
+    {value: 'actualUser', label: '실사용자'},
+    {value: 'parent', label: '부모'},
+    {value: 'spouse', label: '배우자'},
+    {value: 'child', label: '자녀'},
+    {value: 'sibling', label: '형제/자매'},
+    {value: 'relative', label: '친척'},
+    {value: 'friend', label: '친구/연인'},
+    {value: 'company', label: '해당법인직원'},
+    {value: 'etc', label: '기타'},
 ];

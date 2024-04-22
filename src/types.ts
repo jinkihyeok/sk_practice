@@ -27,3 +27,9 @@ export interface ConsultationInfo {
     businessNumber: string;
     businessName: string;
 }
+
+export interface SelectOptionType {
+    value: string;
+    label: string;
+    isDefault?: boolean;
+}
