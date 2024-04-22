@@ -176,7 +176,7 @@ export default function SearchModal({
                                             }}
                                             className={`whitespace-nowrap cursor-pointer ${
                                                 checkedAccount?.serviceNumber === account.serviceNumber
-                                                    ? "text-white bg-yellow-500"
+                                                    ? "text-white bg-neutral-500"
                                                     : index % 2 === 1
                                                         ? "bg-gray-100"
                                                         : ""

@@ -1,11 +1,17 @@
 import SectionHeader from "../common/SectionHeader";
-import { useContext } from "react";
+import {useContext, useState} from "react";
 import { GlobalStateContext } from "../../context/GlobalStateContext";
 import {clientInfoTableHeaders} from "../../constants";
+import {ConsultationInfo} from "../../types";
 
 export default function ClientInfo() {
     const { state } = useContext(GlobalStateContext);
     const consultationInfoList = state.selectedConsultationInfo;
+    const [checkedInfo, setCheckedInfo] = useState<ConsultationInfo>();
+
+    const handleCheckChange = (consultationInfo: ConsultationInfo) => {
+        setCheckedInfo(consultationInfo);
+    }
 
     return (
         <div className="section-style">
@@ -23,12 +29,21 @@ export default function ClientInfo() {
                     {consultationInfoList.map((consultationInfo, index) => (
                         <tr
                             key={index}
-                            className={`border-b border-gray-200 hover:bg-gray-100 ${
-                                index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                            className={`border-b border-gray-200 cursor-pointer ${
+                                checkedInfo?.serviceNumber === consultationInfo.serviceNumber || (index === 0 && !checkedInfo)
+                                    ? "text-white bg-neutral-500"
+                                    : index % 2 === 0
+                                        ? "bg-white"
+                                        : "bg-gray-50"
                             }`}
+                            onClick={() => handleCheckChange(consultationInfo)}
                         >
                             <td className="px-1">
-                                <input type="checkbox" />
+                                <input
+                                    type="checkbox"
+                                    checked={checkedInfo?.serviceNumber === consultationInfo.serviceNumber || (index === 0 && !checkedInfo)}
+                                    readOnly
+                                />
                             </td>
                             <td className="px-1 border">{consultationInfo.accountNumber}</td>
                             <td className="px-1 border">{consultationInfo.serviceType}</td>
