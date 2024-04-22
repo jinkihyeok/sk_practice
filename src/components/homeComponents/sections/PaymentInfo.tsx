@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
-import SectionHeader from "../common/SectionHeader";
-import {GlobalStateContext} from "../../context/GlobalStateContext";
+import SectionHeader from "../../common/SectionHeader";
+import {GlobalStateContext} from "../../../context/GlobalStateContext";
 
 export default function PaymentInfo() {
     const {state} = useContext(GlobalStateContext);

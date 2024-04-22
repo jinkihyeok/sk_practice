@@ -1,6 +1,6 @@
-import SectionHeader from "../common/SectionHeader";
+import SectionHeader from "../../common/SectionHeader";
 import {useContext} from "react";
-import {GlobalStateContext} from "../../context/GlobalStateContext";
+import {GlobalStateContext} from "../../../context/GlobalStateContext";
 
 export default function ConsultDetailInfo() {
     const {state} = useContext(GlobalStateContext);

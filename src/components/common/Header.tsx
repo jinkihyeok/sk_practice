@@ -4,17 +4,19 @@ import {Link} from "react-router-dom";
 
 interface HeaderProps {
     title: string;
+    linkTitle: string;
+    linkPath: string;
 }
 
-export default function Header({title}: HeaderProps) {
+export default function Header({title, linkTitle, linkPath}: HeaderProps) {
     return (
-        <header className="flex flex-row gap-1 justify-between items-center py-1">
-            <div className="flex flex-row">
+        <header className="flex flex-row justify-between py-1">
+            <div className="flex flex-row gap-1 items-center">
             <HeaderIcon/>
             <h1 className="font-bold">{title}</h1>
             </div>
             <div className="flex flex-row items-center">
-            <Link to="/additional" className="text-gray-400">Additional Page</Link>
+            <Link to={linkPath} className="text-gray-400">{linkTitle}</Link>
                 <RightArrowIcon/>
             </div>
         </header>
