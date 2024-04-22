@@ -1,4 +1,4 @@
-export const ConsultationInfo = [
+export const ConsultationInfoData = [
     {
         "serviceNumber": "01046363519",
         "accountNumber": "123456789",
@@ -8,16 +8,6 @@ export const ConsultationInfo = [
         "device": "Galaxy S21",
         "businessNumber": "123-45-67890",
         "businessName": "SK텔레콤",
-    },
-    {
-        "serviceNumber": "01046363519",
-        "accountNumber": "233456345",
-        "serviceType": "휴대폰",
-        "serviceStatus": "미사용",
-        "ratePlan": "4G",
-        "device": "Galaxy S20",
-        "businessNumber": "123-45-67890",
-        "businessName": "LG유플러스",
     },
     {
         "serviceNumber": "12312341234",
@@ -30,3 +20,4 @@ export const ConsultationInfo = [
         "businessName": "SK텔레콤",
     },
 ];
+
