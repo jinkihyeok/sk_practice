@@ -46,8 +46,12 @@ export default function BillingInfo() {
                             <input className="input-style w-2/3" type="text"/>
                         </div>
                         <div className="flex flex-row gap-2 w-1/3">
-                            <button className="btn-style px-2">서비스별</button>
-                            <button className="btn-style px-1 flex-grow">수납이력</button>
+                            <button
+                                disabled
+                                className="btn-style px-2">서비스별</button>
+                            <button
+                                disabled
+                                className="btn-style px-1 flex-grow">수납이력</button>
                         </div>
                     </div>
                     <div className="flex flex-row w-full gap-1">
@@ -60,8 +64,12 @@ export default function BillingInfo() {
                             <input className="input-style w-2/3" type="text"/>
                         </div>
                         <div className="flex flex-row gap-2 w-1/3">
-                            <button className="btn-style px-2">청구서별</button>
-                            <button className="btn-style px-1 flex-grow">당월사용요금</button>
+                            <button
+                                disabled
+                                className="btn-style px-2">청구서별</button>
+                            <button
+                                disabled
+                                className="btn-style px-1 flex-grow">당월사용요금</button>
                         </div>
                     </div>
                 </div>
