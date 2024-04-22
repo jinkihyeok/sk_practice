@@ -94,3 +94,11 @@ export interface ConsultationHistoryType {
     consultant: string;
     contactType: string;
 }
+
+export interface SubscriberType {
+    id: number;
+    name: string;
+    gender: string;
+    subscribeType: string;
+    region: string;
+}
