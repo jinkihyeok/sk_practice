@@ -54,7 +54,9 @@ export default function PaymentInfo() {
                     </div>
                     <div className="flex flex-row justify-end gap-1">
                         <button className="btn-style px-1">입금전용계좌</button>
-                        <button className="btn-style px-1">청구서 반송내역</button>
+                        <button
+                            disabled
+                            className="btn-style px-1">청구서 반송내역</button>
                     </div>
                 </div>
             </div>

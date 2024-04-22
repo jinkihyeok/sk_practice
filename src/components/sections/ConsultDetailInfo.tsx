@@ -60,7 +60,9 @@ export default function ConsultDetailInfo() {
                         <h3 className="w-1/3 text-end">복지할인</h3>
                         <div className="flex flex-row gap-1 w-2/3">
                             <input type="text" className="input-style w-4/5"/>
-                            <button className="btn-style w-1/5">상세</button>
+                            <button
+                                disabled
+                                className="btn-style w-1/5">상세</button>
                         </div>
                     </div>
                     <div className="flex flex-row gap-1">
