@@ -93,3 +93,10 @@ export const relationOptions: SelectOptionType[] = [
     {value: 'company', label: '해당법인직원'},
     {value: 'etc', label: '기타'},
 ];
+
+export const billingInfoTableHeaders = [
+    "청구일자",
+    "청구금액(절사)",
+    "미납잔액",
+    "서비스수",
+];
