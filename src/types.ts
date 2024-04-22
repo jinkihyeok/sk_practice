@@ -81,3 +81,16 @@ export interface SelectOptionType {
     label: string;
     isDefault?: boolean;
 }
+
+export interface ConsultationHistoryType {
+    consultationId: number;
+    serviceNumber: string;
+    consultationDate: string;
+    consultationTime: string;
+    phoneNumber: string;
+    consultationType: string;
+    memo: string;
+    status: string;
+    consultant: string;
+    contactType: string;
+}
