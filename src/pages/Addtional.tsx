@@ -12,7 +12,7 @@ const Additional: React.FC = () => {
             <Header title="추가 페이지" linkTitle="돌아가기" linkPath="/"/>
             <div className="flex flex-col items-end max-w-[1024px] mx-auto py-10">
                     <SearchBarSection/>
-                <div className="grid grid-cols-4 h-100 gap-24 my-2 w-full">
+                <div className="grid grid-cols-4 gap-24 my-2 w-full">
                     <ProfileImageSection/>
                     <GraphSection/>
                 </div>
