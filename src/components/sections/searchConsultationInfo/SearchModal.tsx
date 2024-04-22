@@ -3,9 +3,9 @@ import SectionHeader from "../../common/SectionHeader";
 import {searchModalTableHeaders, serviceNumberOptions} from "../../../constants";
 import {RightArrowIcon} from "../../ui/Icons";
 import {PhoneNumber, ServiceAccount} from "../../../types";
-import {serviceAccountData} from "../../../dummyData/ServiceAccount";
+import {serviceAccountData} from "../../../dummyData/ServiceAccountData";
 import {GlobalStateContext} from "../../../context/GlobalStateContext";
-import {ConsultationInfo} from "../../../dummyData/ConsultationInfo";
+import {ConsultationInfoData} from "../../../dummyData/ConsultationInfoData";
 
 interface SearchModalProps {
     setIsModalOpen: (isOpen: boolean) => void;
@@ -73,7 +73,7 @@ export default function SearchModal({
     };
 
     const applySelectedAccount = (account: ServiceAccount) => {
-        const selectedConsultationInfo = ConsultationInfo.filter(
+        const selectedConsultationInfo = ConsultationInfoData.filter(
             (info) => info.serviceNumber === account.serviceNumber
         );
 
