@@ -1,4 +1,6 @@
-export const ConsultationDetailData = [
+import {ConsultationDetail} from "../types";
+
+export const ConsultationDetailData: ConsultationDetail[] = [
     {
         "serviceNumber": "01046363519",
         "corporateName": "",
@@ -11,7 +13,7 @@ export const ConsultationDetailData = [
         "serialNumber": "353406",
         "networkType": "LTE+WCDMA",
         "numberPortability": "",
-        "welfareDicsount": "",
+        "welfareDiscount": "",
         "planName": "10% 포인트(2GB/200분)",
         "usageType": "일반",
         "simType": "02",

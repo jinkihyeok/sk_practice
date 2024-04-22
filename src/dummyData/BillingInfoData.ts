@@ -1,4 +1,6 @@
-export const BillingInfoData = [
+import {BillingInfo} from "../types";
+
+export const BillingInfoData: BillingInfo[] = [
     {
         "billingDate": "2023-03-28",
         "billingAmount": "7,700",

@@ -1,4 +1,6 @@
-export const ConsultationInfoData = [
+import {ConsultationInfo} from "../types";
+
+export const ConsultationInfoData: ConsultationInfo[] = [
     {
         "serviceNumber": "01046363519",
         "accountNumber": "123456789",

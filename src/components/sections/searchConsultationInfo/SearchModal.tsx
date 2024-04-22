@@ -6,6 +6,9 @@ import {PhoneNumber, ServiceAccount} from "../../../types";
 import {serviceAccountData} from "../../../dummyData/ServiceAccountData";
 import {GlobalStateContext} from "../../../context/GlobalStateContext";
 import {ConsultationInfoData} from "../../../dummyData/ConsultationInfoData";
+import {ConsultationDetailData} from "../../../dummyData/ConsultationDetailData";
+import {BillingInfoData} from "../../../dummyData/BillingInfoData";
+import {PaymentInfoData} from "../../../dummyData/PaymentInfoData";
 
 interface SearchModalProps {
     setIsModalOpen: (isOpen: boolean) => void;
@@ -73,14 +76,21 @@ export default function SearchModal({
     };
 
     const applySelectedAccount = (account: ServiceAccount) => {
-        const selectedConsultationInfo = ConsultationInfoData.filter(
-            (info) => info.serviceNumber === account.serviceNumber
-        );
-
         setState((prevState) => ({
             ...prevState,
             selectedServiceAccount: account,
-            selectedConsultationInfo: selectedConsultationInfo || [],
+            selectedConsultationInfo: ConsultationInfoData.filter(
+                (info) => info.serviceNumber === account.serviceNumber
+            ),
+            selectedConsultationDetail: ConsultationDetailData.find(
+                (detail) => detail.serviceNumber === account.serviceNumber
+            ) || null,
+            selectedBillingInfo: BillingInfoData.filter(
+                (info) => info.serviceNumber === account.serviceNumber
+            ),
+            selectedPaymentInfo: PaymentInfoData.find(
+                (info) => info.serviceNumber === account.serviceNumber
+            ) || null,
         }));
 
         setPhoneNumber({
@@ -88,6 +98,12 @@ export default function SearchModal({
             secondNumber: account.serviceNumber.slice(3, 7),
             thirdNumber: account.serviceNumber.slice(7),
         });
+
+        console.log("selectedServiceAccount", account);
+        console.log("selectedConsultationInfo", ConsultationInfoData);
+        console.log("selectedConsultationDetail", ConsultationDetailData);
+        console.log("selectedBillingInfo", BillingInfoData);
+        console.log("selectedPaymentInfo", PaymentInfoData);
 
         closeModal();
     };

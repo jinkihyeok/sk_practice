@@ -1,4 +1,6 @@
-export const serviceAccountData = [
+import {ServiceAccount} from "../types";
+
+export const serviceAccountData: ServiceAccount[] = [
     {
         "serviceNumber": "01046363519",
         "customerNumber": "123456789",

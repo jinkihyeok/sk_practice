@@ -1,9 +1,12 @@
 import React, { createContext, useState } from 'react';
-import { ServiceAccount, ConsultationInfo } from "../types";
+import {ServiceAccount, ConsultationInfo, ConsultationDetail, BillingInfo, PaymentInfo} from "../types";
 
 interface GlobalState {
     selectedServiceAccount: ServiceAccount | null;
     selectedConsultationInfo: ConsultationInfo[] | [];
+    selectedConsultationDetail: ConsultationDetail | null;
+    selectedBillingInfo: BillingInfo[] | [];
+    selectedPaymentInfo: PaymentInfo | null;
 }
 
 interface GlobalStateContextProps {
@@ -14,6 +17,9 @@ interface GlobalStateContextProps {
 const initialState: GlobalState = {
     selectedServiceAccount: null,
     selectedConsultationInfo: [],
+    selectedConsultationDetail: null,
+    selectedBillingInfo: [],
+    selectedPaymentInfo: null,
 };
 
 export const GlobalStateContext = createContext<GlobalStateContextProps>({
