@@ -113,8 +113,8 @@ export default function ConsultDetailInfo() {
                         <input type="text" className="input-style w-2/3" value={consultationDetail?.legalGuardian} readOnly />
                     </div>
                     <div className="flex flex-row justify-end gap-2 ml-12">
-                        <button className="btn-style w-1/2">이동전화변경</button>
-                        <button className="btn-style w-1/2">단말할부</button>
+                        <button disabled={!consultationDetail} className="btn-style w-1/2">이동전화변경</button>
+                        <button disabled={!consultationDetail} className="btn-style w-1/2">단말할부</button>
                     </div>
                 </div>
             </div>

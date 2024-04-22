@@ -101,13 +101,23 @@ export default function PaymentInfo() {
                 </div>
                 <div className="flex flex-col w-full gap-1 py-1">
                     <div className="flex flex-row justify-end gap-1">
-                        <button className="btn-style px-1">자납변경</button>
-                        <button className="btn-style px-1">인출일정</button>
-                        <button className="btn-style px-1">청구정보관리</button>
-                        <button className="btn-style px-1">기본약정/할부지원</button>
+                        <button disabled={!paymentInfo} className="btn-style px-1">
+                            자납변경
+                        </button>
+                        <button disabled={!paymentInfo} className="btn-style px-1">
+                            인출일정
+                        </button>
+                        <button disabled={!paymentInfo} className="btn-style px-1">
+                            청구정보관리
+                        </button>
+                        <button disabled={!paymentInfo} className="btn-style px-1">
+                            기본약정/할부지원
+                        </button>
                     </div>
                     <div className="flex flex-row justify-end gap-1">
-                        <button className="btn-style px-1">입금전용계좌</button>
+                        <button disabled={!paymentInfo} className="btn-style px-1">
+                            입금전용계좌
+                        </button>
                         <button
                             disabled
                             className="btn-style px-1">청구서 반송내역</button>

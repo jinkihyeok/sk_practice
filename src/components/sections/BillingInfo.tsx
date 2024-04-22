@@ -83,11 +83,10 @@ export default function BillingInfoSection() {
                         </div>
                         <div className="flex flex-row gap-2 w-1/3">
                             <button
-                                disabled
-                                className="btn-style px-2">서비스별
+                                disabled={billingInfo.length === 0} className="btn-style px-2">서비스별
                             </button>
                             <button
-                                disabled
+                                disabled={billingInfo.length === 0}
                                 className="btn-style px-1 flex-grow">수납이력
                             </button>
                         </div>
@@ -103,11 +102,11 @@ export default function BillingInfoSection() {
                         </div>
                         <div className="flex flex-row gap-2 w-1/3">
                             <button
-                                disabled
+                                disabled={billingInfo.length === 0}
                                 className="btn-style px-2">청구서별
                             </button>
                             <button
-                                disabled
+                                disabled={billingInfo.length === 0}
                                 className="btn-style px-1 flex-grow">당월사용요금
                             </button>
                         </div>
