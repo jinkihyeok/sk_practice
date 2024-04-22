@@ -1,8 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import SectionHeader from "../common/SectionHeader";
 import {RightArrowIcon} from "../ui/Icons";
+import {contactTypeOptions, relationOptions} from "../../constants";
+import {SelectOptionType} from "../../types";
 
 export default function SaveConsultation() {
+    const [contactType, setContactType] = useState<SelectOptionType | undefined>(contactTypeOptions.find(option => option.isDefault));
+    const [relation, setRelation] = useState<SelectOptionType | undefined>(relationOptions.find(option => option.isDefault));
+
+    const handleContactTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedValue = e.target.value;
+        const selectedOption = contactTypeOptions.find(option => option.value === selectedValue);
+        if (selectedOption) {
+            setContactType(selectedOption);
+        }
+    }
+
+    const handleRelationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedValue = e.target.value;
+        const selectedOption = relationOptions.find(option => option.value === selectedValue);
+        if (selectedOption) {
+            setRelation(selectedOption);
+        }
+    }
+
     return (
         <div className="section-style col-span-3">
             <SectionHeader title="상담이력저장"/>
@@ -13,7 +34,9 @@ export default function SaveConsultation() {
                             <h3 className="w-1/6 text-end whitespace-nowrap">검색</h3>
                             <div className="flex flex-row gap-1 w-5/6">
                                 <input className="input-style !bg-white flex-grow"/>
-                                <button className="btn-style px-2">조회</button>
+                                <button
+                                    disabled
+                                    className="btn-style px-2">조회</button>
                             </div>
                         </div>
                         <div className="flex flex-row gap-1 flex-grow">
@@ -26,19 +49,43 @@ export default function SaveConsultation() {
                         <textarea className="flex-grow border resize-none scrollbar p-1 outline-none"/>
                     </div>
                 </div>
-                <div className="flex flex-row w-full justify-between items-center gap-1">
-                    <h3 className="whitespace-nowrap">통화자명</h3>
-                    <input className="input-style !bg-purple-100"/>
-                    <h3 className="whitespace-nowrap">연락처</h3>
-                    <input className="input-style !bg-purple-100"/>
-                    <h3 className="whitespace-nowrap">접촉구분</h3>
-                    <select className="input-style !bg-purple-100 flex-grow"/>
+                <div className="flex flex-row w-full justify-center items-center gap-1">
+                    <div className="flex flex-row gap-1 w-1/2 bg-blue-50">
+                    <h3 className="whitespace-nowrap text-end w-1/6">통화자명</h3>
+                    <input className="input-style !bg-purple-100 w-2/3"/>
+                    <h3 className="whitespace-nowrap text-end w-1/4">연락처</h3>
+                    <input className="input-style !bg-purple-100 w-2/3"/>
+                    </div>
+                    <div className="flex flex-row items-center gap-1 w-1/2">
+                    <h3 className="whitespace-nowrap text-end">접촉구분</h3>
+                    <select
+                        className="input-style !bg-purple-100"
+                        value={contactType?.value}
+                        onChange={handleContactTypeChange}
+                        name="contactType">
+                        {contactTypeOptions.map(option => (
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </select>
                     <h3 className="whitespace-nowrap">관계</h3>
-                    <select className="input-style !bg-purple-100 flex-grow"/>
-                    <button className="btn-style px-2 h-full flex flex-row items-center">
+                    <select
+                        className="input-style !bg-purple-100"
+                        value={relation?.value}
+                        onChange={handleRelationChange}
+                        name="relation">
+                        {relationOptions.map(option => (
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </select>
+                    <button className="btn-style px-2 py-0.5 flex flex-row items-center">
                         <h3>저장</h3>
                         <RightArrowIcon/>
                     </button>
+                    </div>
                 </div>
             </div>
         </div>
