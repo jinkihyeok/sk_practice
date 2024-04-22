@@ -55,9 +55,9 @@ export interface ConsultationDetail {
 
 export interface BillingInfo {
     billingDate: string;
-    billingAmount: string;
-    unpaidBalance: string;
-    serviceCount: string;
+    billingAmount: number;
+    unpaidBalance: number;
+    serviceCount: number;
     serviceNumber: string;
 }
 
