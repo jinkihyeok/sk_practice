@@ -16,8 +16,10 @@ const Additional: React.FC = () => {
                     <ProfileImageSection/>
                     <GraphSection/>
                 </div>
+                <div className="flex flex-col gap-3 w-full">
                 <ImageSlideSection/>
                 <AccordionSection/>
+                </div>
             </div>
         </div>
     );
