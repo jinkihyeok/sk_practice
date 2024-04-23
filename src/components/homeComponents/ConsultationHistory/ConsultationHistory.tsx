@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {consultationHistoryTableHeaders, consultationHistoryTabs} from "../../../libs/constants";
-import Pagination from "../../../utils/Pagination";
+import Pagination from "./Pagination";
 import consultationHistoryData from '../../../dummyData/ConsultationHistoryData.json';
 import {ConsultationHistoryType} from "../../../types";
 import {DownArrowIcon, UpArrowIcon} from "../../ui/Icons";
@@ -76,7 +76,7 @@ export default function ConsultationHistory() {
                         <td className="border text-center whitespace-nowrap px-1">{item.consultationTime}</td>
                         <td className="border text-center whitespace-nowrap px-1">{item.phoneNumber}</td>
                         <td className="border text-center whitespace-nowrap px-1">{item.consultationType}</td>
-                        <td className="border text-center px-1 line-clamp-1">{item.memo}</td>
+                        <td className="border text-start px-1 line-clamp-1">{item.memo}</td>
                         <td className="border text-center whitespace-nowrap px-1">{item.status}</td>
                         <td className="border text-center whitespace-nowrap px-1">{item.consultant}</td>
                         <td className="border text-center whitespace-nowrap px-1">{item.contactType}</td>

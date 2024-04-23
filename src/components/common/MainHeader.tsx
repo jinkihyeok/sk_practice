@@ -8,7 +8,7 @@ interface HeaderProps {
     linkPath: string;
 }
 
-export default function Header({title, linkTitle, linkPath}: HeaderProps) {
+export default function MainHeader({title, linkTitle, linkPath}: HeaderProps) {
     return (
         <header className="flex flex-row justify-between py-1">
             <div className="flex flex-row gap-1 items-center">

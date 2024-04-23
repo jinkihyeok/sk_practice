@@ -1,9 +1,9 @@
 import React, {useContext, useState} from "react";
-import SectionHeader from "../../common/SectionHeader";
-import {RightArrowIcon} from "../../ui/Icons";
-import {contactTypeOptions, relationOptions} from "../../../libs/constants";
-import {SelectOptionType} from "../../../types";
-import {GlobalStateContext} from "../../../contexts/GlobalStateContext";
+import SectionHeader from "../common/SectionHeader";
+import {RightArrowIcon} from "../ui/Icons";
+import {contactTypeOptions, relationOptions} from "../../libs/constants";
+import {SelectOptionType} from "../../types";
+import {GlobalStateContext} from "../../contexts/GlobalStateContext";
 
 export default function SaveConsultation() {
     const [contactType, setContactType] = useState<SelectOptionType | undefined>(contactTypeOptions.find(option => option.isDefault));

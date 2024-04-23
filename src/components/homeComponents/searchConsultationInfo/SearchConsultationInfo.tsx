@@ -1,10 +1,10 @@
-import SectionHeader from "../../../common/SectionHeader";
+import SectionHeader from "../../common/SectionHeader";
 import React, {useContext, useState} from "react";
-import {firstNumberOptions, serviceNumberOptions} from "../../../../libs/constants";
-import {RightArrowIcon} from "../../../ui/Icons";
+import {firstNumberOptions, serviceNumberOptions} from "../../../libs/constants";
+import {RightArrowIcon} from "../../ui/Icons";
 import SearchModal from "./SearchModal";
-import {PhoneNumber, SelectOptionType} from "../../../../types";
-import {GlobalStateContext} from "../../../../contexts/GlobalStateContext";
+import {PhoneNumber, SelectOptionType} from "../../../types";
+import {GlobalStateContext} from "../../../contexts/GlobalStateContext";
 
 export default function SearchConsultationInfo() {
 
@@ -25,8 +25,19 @@ export default function SearchConsultationInfo() {
         const {name, value} = e.target;
         setPhoneNumber(prevState => ({
             ...prevState,
-            [name]: value
+            [name]: value.replace(/[^0-9]/g, ''),
         }));
+    };
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (
+            !/[0-9]/.test(event.key) &&
+            event.key !== 'Backspace' &&
+            event.key !== 'Tab' &&
+            event.key !== 'Shift'
+        ) {
+            event.preventDefault();
+        }
     };
 
     const handleSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -53,7 +64,7 @@ export default function SearchConsultationInfo() {
                                         </option>
                                     ))}
                                 </select>
-                                <select className="w-1/6 border border-gray-300 bg-purple-100 outline-none"
+                                <select className="w-1/6 border border-gray-300 bg-purple-100 outline-none text-center"
                                         name="firstNumber"
                                         value={phoneNumber.firstNumber}
                                         onChange={handlePhoneNumberChange}>
@@ -66,18 +77,20 @@ export default function SearchConsultationInfo() {
                                 <input
                                     type="text"
                                     name="secondNumber"
-                                    className="w-1/6 border border-gray-300 bg-purple-100 outline-none"
+                                    className="w-1/6 border border-gray-300 bg-purple-100 outline-none text-center"
                                     value={phoneNumber.secondNumber}
                                     onChange={handlePhoneNumberChange}
                                     maxLength={4}
+                                    onKeyDown={handleKeyDown}
                                 />
                                 <input
                                     type="text"
                                     name="thirdNumber"
-                                    className="w-1/6 border border-gray-300 bg-purple-100 outline-none"
+                                    className="w-1/6 border border-gray-300 bg-purple-100 outline-none text-center"
                                     value={phoneNumber.thirdNumber}
                                     onChange={handlePhoneNumberChange}
                                     maxLength={4}
+                                    onKeyDown={handleKeyDown}
                                 />
                                 <button
                                     onClick={(e) => handleSearch(e)}

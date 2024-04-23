@@ -1,14 +1,14 @@
 import React, {useContext, useEffect, useState} from 'react';
-import SectionHeader from "../../../common/SectionHeader";
-import {searchModalTableHeaders, serviceNumberOptions} from "../../../../libs/constants";
-import {RightArrowIcon} from "../../../ui/Icons";
-import {PhoneNumber, ServiceAccount} from "../../../../types";
-import {serviceAccountData} from "../../../../dummyData/ServiceAccountData";
-import {GlobalStateContext} from "../../../../contexts/GlobalStateContext";
-import {ConsultationInfoData} from "../../../../dummyData/ConsultationInfoData";
-import {ConsultationDetailData} from "../../../../dummyData/ConsultationDetailData";
-import {BillingInfoData} from "../../../../dummyData/BillingInfoData";
-import {PaymentInfoData} from "../../../../dummyData/PaymentInfoData";
+import SectionHeader from "../../common/SectionHeader";
+import {searchModalTableHeaders, serviceNumberOptions} from "../../../libs/constants";
+import {RightArrowIcon} from "../../ui/Icons";
+import {PhoneNumber, ServiceAccount} from "../../../types";
+import {serviceAccountData} from "../../../dummyData/ServiceAccountData";
+import {GlobalStateContext} from "../../../contexts/GlobalStateContext";
+import {ConsultationInfoData} from "../../../dummyData/ConsultationInfoData";
+import {ConsultationDetailData} from "../../../dummyData/ConsultationDetailData";
+import {BillingInfoData} from "../../../dummyData/BillingInfoData";
+import {PaymentInfoData} from "../../../dummyData/PaymentInfoData";
 
 interface SearchModalProps {
     setIsModalOpen: (isOpen: boolean) => void;

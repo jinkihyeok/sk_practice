@@ -1,17 +1,17 @@
 import React from 'react';
-import Header from "../components/common/Header";
-import ClientInfo from "../components/homeComponents/sections/ClientInfo";
-import BillingInfo from "../components/homeComponents/sections/BillingInfo";
-import PaymentInfo from "../components/homeComponents/sections/PaymentInfo";
-import SaveConsultation from "../components/homeComponents/sections/SaveConsultation";
-import ConsultationHistory from "../components/homeComponents/sections/ConsultationHistory";
-import SearchConsultationInfo from "../components/homeComponents/sections/searchConsultationInfo/SearchConsultationInfo";
-import ConsultDetailInfo from "../components/homeComponents/sections/ConsultDetailInfo";
+import MainHeader from "../components/common/MainHeader";
+import ClientInfo from "../components/homeComponents/ClientInfo";
+import BillingInfo from "../components/homeComponents/BillingInfo";
+import PaymentInfo from "../components/homeComponents/PaymentInfo";
+import SaveConsultation from "../components/homeComponents/SaveConsultation";
+import ConsultationHistory from "../components/homeComponents/ConsultationHistory/ConsultationHistory";
+import SearchConsultationInfo from "../components/homeComponents/searchConsultationInfo/SearchConsultationInfo";
+import ConsultDetailInfo from "../components/homeComponents/ConsultDetailInfo";
 
 const Home: React.FC = () => {
     return (
         <div className="mx-auto">
-            <Header title="고객상담" linkTitle="Additional Page" linkPath="/additional"/>
+            <MainHeader title="고객상담" linkTitle="Additional Page" linkPath="/additional"/>
             <SearchConsultationInfo/>
             <ClientInfo/>
             <div className="grid grid-cols-2 gap-3 my-2">
