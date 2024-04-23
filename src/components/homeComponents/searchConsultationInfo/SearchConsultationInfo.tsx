@@ -130,7 +130,7 @@ export default function SearchConsultationInfo() {
                                 disabled
                             />
                             <button
-                                disabled className="border px-2 text-gray-400 bg-amber-900 rounded whitespace-nowrap">
+                                disabled className="btn-style px-2 !text-gray-400">
                                 고객인증
                             </button>
                         </div>
