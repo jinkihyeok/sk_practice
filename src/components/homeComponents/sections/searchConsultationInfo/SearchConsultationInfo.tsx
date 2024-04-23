@@ -1,10 +1,10 @@
 import SectionHeader from "../../../common/SectionHeader";
 import React, {useContext, useState} from "react";
-import {firstNumberOptions, serviceNumberOptions} from "../../../../constants";
+import {firstNumberOptions, serviceNumberOptions} from "../../../../libs/constants";
 import {RightArrowIcon} from "../../../ui/Icons";
 import SearchModal from "./SearchModal";
 import {PhoneNumber, SelectOptionType} from "../../../../types";
-import {GlobalStateContext} from "../../../../context/GlobalStateContext";
+import {GlobalStateContext} from "../../../../contexts/GlobalStateContext";
 
 export default function SearchConsultationInfo() {
 

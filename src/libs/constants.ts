@@ -1,4 +1,4 @@
-import {SelectOptionType} from "./types";
+import {SelectOptionType} from "../types";
 
 export const serviceNumberOptions: SelectOptionType[] = [
     {value: 'service_number', label: '서비스번호', isDefault: true},

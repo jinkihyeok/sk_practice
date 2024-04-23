@@ -1,6 +1,10 @@
 import React from "react";
+import {useLocaleState} from "../../../contexts/LocaleStateContext";
 
 export default function SearchBarSection() {
+    const {locale, setLocale} = useLocaleState();
+
+
     const handleSearch = () => {
         alert("메뉴 검색");
     };
@@ -11,6 +15,10 @@ export default function SearchBarSection() {
             handleSearch();
         }
     };
+
+    const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setLocale(event.target.value as "ko" | "en");
+    }
 
     return (
         <div className="flex flex-row w-full gap-6 justify-between">
@@ -31,9 +39,13 @@ export default function SearchBarSection() {
                     </button>
                 </div>
                 <div>
-                    <select className="h-full text-white bg-blue-500 px-10 border-2 border-gray-500 rounded-lg">
-                        <option>한글</option>
-                        <option>영문</option>
+                    <select
+                        className="h-full text-white bg-blue-500 px-10 border-2 border-gray-500 rounded-lg"
+                        value={locale}
+                        onChange={handleLanguageChange}
+                    >
+                        <option value="ko">한글</option>
+                        <option value="en">영문</option>
                     </select>
                 </div>
             </div>

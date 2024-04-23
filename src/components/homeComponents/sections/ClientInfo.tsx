@@ -1,7 +1,7 @@
 import SectionHeader from "../../common/SectionHeader";
 import {useContext, useState} from "react";
-import { GlobalStateContext } from "../../../context/GlobalStateContext";
-import {clientInfoTableHeaders} from "../../../constants";
+import { GlobalStateContext } from "../../../contexts/GlobalStateContext";
+import {clientInfoTableHeaders} from "../../../libs/constants";
 import {ConsultationInfo} from "../../../types";
 
 export default function ClientInfo() {

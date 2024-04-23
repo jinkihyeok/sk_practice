@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {consultationHistoryTableHeaders, consultationHistoryTabs} from "../../../constants";
+import {consultationHistoryTableHeaders, consultationHistoryTabs} from "../../../libs/constants";
 import Pagination from "../../../utils/Pagination";
 import consultationHistoryData from '../../../dummyData/ConsultationHistoryData.json';
 import {ConsultationHistoryType} from "../../../types";

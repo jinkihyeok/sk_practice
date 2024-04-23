@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import SectionHeader from "../../common/SectionHeader";
-import {GlobalStateContext} from "../../../context/GlobalStateContext";
-import {billingInfoTableHeaders} from "../../../constants";
+import {GlobalStateContext} from "../../../contexts/GlobalStateContext";
+import {billingInfoTableHeaders} from "../../../libs/constants";
 import {BillingInfo} from "../../../types";
 
 export default function BillingInfoSection() {
