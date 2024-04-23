@@ -64,50 +64,50 @@ export default function BillingInfoSection() {
                 <div className="flex flex-col flex-grow justify-center gap-2 text-xs p-1 bg-gray-200">
                     <div className="flex flex-row w-full gap-1">
                         <div className="flex flex-row gap-1 items-center w-1/3">
-                            <h3 className="whitespace-nowrap text-end w-1/3">미납월수</h3>
+                            <h3 className="whitespace-nowrap text-end w-1/4">미납월수</h3>
                             <input
-                                className="input-style text-end w-2/3"
+                                className="input-style text-end w-3/4"
                                 type="text"
                                 value={unpaidCount.toString()}
                                 readOnly
                             />
                         </div>
                         <div className="flex flex-row gap-1 items-center w-1/3">
-                            <h3 className="whitespace-nowrap text-end w-1/3">미납금액</h3>
+                            <h3 className="whitespace-nowrap text-end w-1/4">미납금액</h3>
                             <input
-                                className="input-style text-end w-2/3"
+                                className="input-style text-end w-3/4"
                                 type="text"
                                 value={unpaidAmount.toLocaleString()}
                                 readOnly
                             />
                         </div>
-                        <div className="flex flex-row gap-2 w-1/3">
+                        <div className="flex flex-row justify-end gap-2 w-1/3">
                             <button
-                                disabled={billingInfo.length === 0} className="btn-style px-2">서비스별
+                                disabled={billingInfo.length === 0} className="btn-style px-2 w-2/5">서비스별
                             </button>
                             <button
                                 disabled={billingInfo.length === 0}
-                                className="btn-style px-1 flex-grow">수납이력
+                                className="btn-style px-1 w-3/5">수납이력
                             </button>
                         </div>
                     </div>
                     <div className="flex flex-row w-full gap-1">
                         <div className="flex flex-row gap-1 items-center w-1/3">
-                            <h3 className="whitespace-nowrap text-end w-1/3">당월청구</h3>
-                            <input className="input-style w-2/3" type="text"/>
+                            <h3 className="whitespace-nowrap text-end w-1/4">당월청구</h3>
+                            <input className="input-style w-3/4" type="text"/>
                         </div>
                         <div className="flex flex-row gap-1 items-center w-1/3">
-                            <h3 className="whitespace-nowrap text-end w-1/3">후청구금액</h3>
-                            <input className="input-style w-2/3" type="text"/>
+                            <h3 className="whitespace-nowrap text-end w-1/4">후청구금액</h3>
+                            <input className="input-style w-3/4" type="text"/>
                         </div>
-                        <div className="flex flex-row gap-2 w-1/3">
+                        <div className="flex flex-row justify-end gap-2 w-1/3">
                             <button
                                 disabled={billingInfo.length === 0}
-                                className="btn-style px-2">청구서별
+                                className="btn-style px-2 w-2/5">청구서별
                             </button>
                             <button
                                 disabled={billingInfo.length === 0}
-                                className="btn-style px-1 flex-grow">당월사용요금
+                                className="btn-style px-1 w-3/5">당월사용요금
                             </button>
                         </div>
                     </div>

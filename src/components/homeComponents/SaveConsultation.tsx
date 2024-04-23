@@ -56,18 +56,18 @@ export default function SaveConsultation() {
                             className="flex-grow border resize-none scrollbar p-1 outline-none"/>
                     </div>
                 </div>
-                <div className="flex flex-row w-full justify-end items-center gap-1 bg-blue-50">
-                    <div className="flex flex-row gap-1 w-1/2">
+                <div className="flex flex-row w-full justify-end items-center gap-1">
+                    <div className="flex flex-row justify-end gap-1 w-1/2">
                         <h3 className="whitespace-nowrap text-end w-1/6">통화자명</h3>
-                        <input disabled={!isServiceAccount} className="input-style !bg-purple-100 w-2/3"/>
-                        <h3 className="whitespace-nowrap text-end w-1/4">연락처</h3>
-                        <input disabled={!isServiceAccount} className="input-style !bg-purple-100 w-2/3"/>
+                        <input disabled={!isServiceAccount} className="input-style !bg-purple-100 min-w-0 flex-grow"/>
+                        <h3 className="whitespace-nowrap text-end">연락처</h3>
+                        <input disabled={!isServiceAccount} className="input-style !bg-purple-100 min-w-0 flex-grow"/>
                     </div>
-                    <div className="flex flex-row items-center gap-1 w-1/2">
+                    <div className="flex flex-row justify-end items-center gap-1 w-1/2">
                         <h3 className="whitespace-nowrap text-end">접촉구분</h3>
                         <select
                             disabled={!isServiceAccount}
-                            className="input-style !bg-purple-100"
+                            className="input-style !bg-purple-100 flex-grow"
                             value={contactType?.value}
                             onChange={handleContactTypeChange}
                             name="contactType">
@@ -80,7 +80,7 @@ export default function SaveConsultation() {
                         <h3 className="whitespace-nowrap">관계</h3>
                         <select
                             disabled={!isServiceAccount}
-                            className="input-style !bg-purple-100"
+                            className="input-style !bg-purple-100 flex-grow"
                             value={relation?.value}
                             onChange={handleRelationChange}
                             name="relation">
