@@ -1,27 +1,29 @@
-import {SubscriberData} from "../../../../dummyData/subscriberData";
-import {SubscriberType} from "../../../../types";
 import {VictoryArea, VictoryChart, VictoryPie, VictoryPolarAxis, VictoryTheme} from "victory";
+import {subscriberCountByRegion} from "../../../../dummyData/ChartData";
 
-export default function RegionGraph() {
-    const regions: string[] = [...new Set(SubscriberData.map((subscriber: SubscriberType) => subscriber.region))];
+function generateColors(length: number): string[] {
+    const colors: string[] = [];
+    for (let i = 0; i < length; i++) {
+        const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        colors.push(color);
+    }
+    return colors;
+}
 
-    const countByRegion = regions.map((region: string) => {
-        return SubscriberData.filter(
-            (subscriber: SubscriberType) =>
-                subscriber.region === region
-        ).length;
-    });
+export default function RegionChart() {
 
-    const chartData = regions.map((region, index) => ({
-        x: region,
-        y: countByRegion[index]
+    const chartData = subscriberCountByRegion.map((data) => ({
+        x: data.region,
+        y: data.count
     }));
+
+    const randomColor = generateColors(chartData.length);
 
     return (
         <>
             <div className="h-44 border-2 border-gray-500">
                 <VictoryPie
-                    colorScale={["tomato", "orange", "gold", "cyan", "navy", "purple", "green"]}
+                    colorScale={randomColor}
                     data={chartData}
                 />
             </div>

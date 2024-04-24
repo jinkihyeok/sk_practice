@@ -1,7 +1,7 @@
 import React from 'react';
 import MainHeader from "../components/common/MainHeader";
 import ProfileImageSection from "../components/additionalComponents/sections/ProfileImageSection";
-import GraphSection from "../components/additionalComponents/sections/graphSecton/GraphSection";
+import ChartSection from "../components/additionalComponents/sections/chartSecton/ChartSection";
 import SearchBarSection from "../components/additionalComponents/sections/SearchBarSection";
 import ImageSlideSection from "../components/additionalComponents/sections/ImageSlideSection";
 import AccordionSection from "../components/additionalComponents/sections/AccordionSection";
@@ -14,7 +14,7 @@ const Additional: React.FC = () => {
                 <SearchBarSection/>
                 <div className="flex flex-row gap-3 w-full">
                     <ProfileImageSection/>
-                    <GraphSection/>
+                    <ChartSection/>
                 </div>
                 <div className="flex flex-col gap-3 w-full">
                     <ImageSlideSection/>

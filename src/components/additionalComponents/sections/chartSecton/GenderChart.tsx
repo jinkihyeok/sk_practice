@@ -1,7 +1,7 @@
 import {VictoryAxis, VictoryBar, VictoryChart, VictoryLegend, VictoryLine, VictoryStack} from "victory";
 import {subscriberCountByGender} from "../../../../dummyData/ChartData";
 
-export default function GenderGraph() {
+export default function GenderChart() {
 
     const [maleChartData, femaleChartData, monthData] = subscriberCountByGender.reduce<[{ x: string; y: number }[], { x: string; y: number }[], string[]]>(
         (acc, { month, male, female }) => {
