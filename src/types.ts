@@ -102,3 +102,14 @@ export interface SubscriberType {
     subscribeType: string;
     region: string;
 }
+
+export interface SubscriberByGenderType {
+    month: string;
+    male: number;
+    female: number;
+}
+
+export interface SubscriberByRegionType {
+    region: string;
+    count: number;
+}

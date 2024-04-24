@@ -1,33 +1,24 @@
-import {VictoryAxis, VictoryBar, VictoryChart, VictoryLegend, VictoryLine, VictoryStack, VictoryTheme} from "victory";
-
-interface ChartDataType {
-    month: string;
-    male: number;
-    female: number;
-}
+import {VictoryAxis, VictoryBar, VictoryChart, VictoryLegend, VictoryLine, VictoryStack} from "victory";
+import {subscriberCountByGender} from "../../../../dummyData/ChartData";
 
 export default function GenderGraph() {
-    const subscriberCountByGender: ChartDataType[] = [
-        {"month": "january", "male": 320, "female": 280},
-        {"month": "february", "male": 280, "female": 290},
-        {"month": "march", "male": 120, "female": 340},
-        {"month": "april", "male": 220, "female": 124},
-        {"month": "may", "male": 235, "female": 247},
-        {"month": "june", "male": 300, "female": 370},
-        {"month": "july", "male": 400, "female": 420},
-        {"month": "august", "male": 320, "female": 220},
-        {"month": "september", "male": 600, "female": 600},
-        {"month": "october", "male": 270, "female": 600},
-        {"month": "november", "male": 320, "female": 280},
-        {"month": "december", "male": 500, "female": 400},
-    ];
+
+    const [maleChartData, femaleChartData, monthData] = subscriberCountByGender.reduce<[{ x: string; y: number }[], { x: string; y: number }[], string[]]>(
+        (acc, { month, male, female }) => {
+            acc[0].push({ x: month, y: male });
+            acc[1].push({ x: month, y: female });
+            acc[2].push(month);
+            return acc;
+        },
+        [[], [], []]
+    );
 
     return (
         <>
             <div className="h-44 border-2 border-gray-500">
                 <VictoryChart
-                width={800}
-                domainPadding={20}
+                    width={800}
+                    domainPadding={20}
                 >
                     <VictoryLegend
                         x={690} y={30}
@@ -45,10 +36,10 @@ export default function GenderGraph() {
                         colorScale={["skyBlue", "pink"]}
                     >
                         <VictoryBar
-                            data={subscriberCountByGender.map((data) => ({x: data.month, y: data.male}))}
+                            data={maleChartData}
                         />
                         <VictoryBar
-                            data={subscriberCountByGender.map((data) => ({x: data.month, y: data.female}))}
+                            data={femaleChartData}
                         />
                         <VictoryAxis dependentAxis
                                      style={{
@@ -57,7 +48,7 @@ export default function GenderGraph() {
                                      }}
                         />
                         <VictoryAxis
-                            tickValues={subscriberCountByGender.map((data) => data.month)}
+                            tickValues={monthData}
                             style={{
                                 tickLabels: {
                                     angle: -30,
@@ -81,14 +72,14 @@ export default function GenderGraph() {
                             data: {stroke: "skyBlue"},
                             parent: {border: "1px solid #ccc"}
                         }}
-                        data={subscriberCountByGender.map((data) => ({x: data.month, y: data.male}))}
+                        data={maleChartData}
                     />
                     <VictoryLine
                         style={{
                             data: {stroke: "pink"},
                             parent: {border: "1px solid #ccc"}
                         }}
-                        data={subscriberCountByGender.map((data) => ({x: data.month, y: data.female}))}
+                        data={femaleChartData}
                     />
                     <VictoryAxis dependentAxis
                                  style={{
@@ -96,7 +87,7 @@ export default function GenderGraph() {
                                  }}
                     />
                     <VictoryAxis
-                        tickValues={subscriberCountByGender.map((data) => data.month)}
+                        tickValues={monthData}
                         style={{
                             tickLabels: {
                                 angle: -30,
