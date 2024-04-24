@@ -1,4 +1,6 @@
 {
+  "accordion.label1": "아코디언1",
+  "accordion.label2": "아코디언2",
   "accordion.item1": "Data는 임의로 작성하며 3개의 아코디언을 구현",
     "accordion.item2": "하나를 펼치면 다른 것은 닫히도록 구현"
 }

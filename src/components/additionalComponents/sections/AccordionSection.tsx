@@ -17,13 +17,17 @@ export default function AccordionSection() {
         <div className="flex items-center justify-center h-56 border-2 border-gray-500 px-8 bg-gray-100">
             <Accordion defaultValue="item-1" type="single" collapsible className="w-full bg-white rounded-xl">
                 <AccordionItem className="px-5 border rounded-t-xl shadow-sm" value="item-1">
-                    <AccordionTrigger>Accordion 1</AccordionTrigger>
+                    <AccordionTrigger>
+                        <FormattedMessage id="accordion.label1" />
+                    </AccordionTrigger>
                     <AccordionContent>
                         <FormattedMessage id="accordion.item1" />
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem className="px-5 border shadow-sm" value="item-2">
-                    <AccordionTrigger>Accordion 2</AccordionTrigger>
+                    <AccordionTrigger>
+                        <FormattedMessage id="accordion.label2" />
+                    </AccordionTrigger>
                     <AccordionContent>
                         <FormattedMessage id="accordion.item2" />
                     </AccordionContent>
