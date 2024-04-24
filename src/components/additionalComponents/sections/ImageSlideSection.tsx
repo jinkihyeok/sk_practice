@@ -42,7 +42,7 @@ export default function ImageSlideSection() {
         dots: false,
         infinite: true,
         speed: 500,
-        // autoplay: true,
+        autoplay: true,
         autoplaySpeed: 2000,
         slidesToShow: 6,
         slidesToScroll: 1,

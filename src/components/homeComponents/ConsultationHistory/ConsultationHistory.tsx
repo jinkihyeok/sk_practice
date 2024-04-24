@@ -51,7 +51,7 @@ export default function ConsultationHistory() {
                 <button
                     className="px-3 text-gray-400 flex flex-row items-center"
                     onClick={toggleItemsPerPage}>
-                    {showFiftyItems ? '10개 보기' : '50개 보기'}
+                    {showFiftyItems ? '10개씩 보기' : '50개씩 보기'}
                     {showFiftyItems ? <UpArrowIcon /> : <DownArrowIcon />}
                 </button>
                 </div>

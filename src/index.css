@@ -88,7 +88,7 @@ body {
 }
 
 .btn-style {
-    @apply bg-amber-900 text-gray-300 font-light rounded-sm whitespace-nowrap max-w-32;
+    @apply bg-neutral-900 text-gray-300 font-light rounded-sm whitespace-nowrap max-w-32;
 }
 
 .section-style {
