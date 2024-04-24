@@ -12,6 +12,7 @@ import {PaymentInfoData} from "../../../dummyData/PaymentInfoData";
 
 interface SearchModalProps {
     setIsModalOpen: (isOpen: boolean) => void;
+    isModalOpen: boolean;
     selectedOption: {
         value: string,
         label: string
@@ -26,6 +27,7 @@ interface SearchModalProps {
 
 export default function SearchModal({
                                         setIsModalOpen,
+                                        isModalOpen,
                                         setSelectedOption,
                                         selectedOption,
                                         phoneNumber,
@@ -35,11 +37,17 @@ export default function SearchModal({
     const [searchedServiceAccounts, setSearchedServiceAccounts] = useState<ServiceAccount[]>([]);
     const [inputNumber, setInputNumber] = useState('');
     const [checkedAccount, setCheckedAccount] = useState<ServiceAccount | null>(null);
-    const { setState } = useContext(GlobalStateContext);
+    const {setState} = useContext(GlobalStateContext);
 
     useEffect(() => {
         setInputNumber(`${phoneNumber.firstNumber}${phoneNumber.secondNumber}${phoneNumber.thirdNumber}`);
     }, [phoneNumber]);
+
+    useEffect(() => {
+        if (isModalOpen) {
+            handleSearch();
+        }
+    }, [isModalOpen, inputNumber]);
 
     const closeModal = () => {
         setIsModalOpen(false);
@@ -225,7 +233,8 @@ export default function SearchModal({
                                                 }`}
                                             >
                                                 {Array.from({length: 9}).map((_, cellIndex) => (
-                                                    <td key={cellIndex} className={`px-1 ${cellIndex === 0 ? "" : "border"}`}></td>
+                                                    <td key={cellIndex}
+                                                        className={`px-1 ${cellIndex === 0 ? "" : "border"}`}></td>
                                                 ))}
                                             </tr>
                                         ))}

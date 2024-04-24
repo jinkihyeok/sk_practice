@@ -143,7 +143,7 @@ export default function SearchConsultationInfo() {
                     </form>
                 </div>
             </div>
-            {isModalOpen && <SearchModal setIsModalOpen={setIsModalOpen} selectedOption={selectedOption}
+            {isModalOpen && <SearchModal setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} selectedOption={selectedOption}
                                          setSelectedOption={setSelectedOption} phoneNumber={phoneNumber}
                                          setPhoneNumber={setPhoneNumber}
             />}
