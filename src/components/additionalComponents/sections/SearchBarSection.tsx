@@ -21,9 +21,9 @@ export default function SearchBarSection() {
     }
 
     return (
-        <div className="grid grid-cols-4 gap-24 my-2 w-full">
-            <div className="col-span-1"></div>
-            <div className="col-span-3 flex flex-row justify-between">
+        <div className="flex flex-row gap-3 w-full">
+            <div className="w-[250px]"></div>
+            <div className="flex flex-grow flex-row justify-between">
                 <div className="flex flex-row gap-2">
                     <input
                         type="text"

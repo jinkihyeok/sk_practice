@@ -40,9 +40,9 @@ export default function ImageSlideSection() {
         dots: false,
         infinite: true,
         speed: 500,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 2000,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
@@ -51,7 +51,7 @@ export default function ImageSlideSection() {
 
     return (
         <div className="flex items-center w-full h-56 border-2 border-gray-500 justify-center">
-            <Slider {...settings} className="w-full max-w-[900px]">
+            <Slider {...settings} className="w-full max-w-[1100px]">
                 {imageUrls.map((url, index) => (
                     <div key={index} className="px-5">
                         <img src={url} alt={`slideImage${index}`} className="w-[250px] h-[180px] object-cover border-2 border-gray-500"/>

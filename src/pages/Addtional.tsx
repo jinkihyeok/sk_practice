@@ -10,15 +10,15 @@ const Additional: React.FC = () => {
     return (
         <div className="mx-auto w-full flex flex-col">
             <MainHeader title="추가 페이지" linkTitle="돌아가기" linkPath="/"/>
-            <div className="flex flex-col items-end mx-auto py-10">
-                    <SearchBarSection/>
-                <div className="grid grid-cols-4 gap-24 my-2 w-full">
+            <div className="flex flex-col gap-3 py-10">
+                <SearchBarSection/>
+                <div className="flex flex-row gap-3 w-full">
                     <ProfileImageSection/>
                     <GraphSection/>
                 </div>
                 <div className="flex flex-col gap-3 w-full">
-                <ImageSlideSection/>
-                <AccordionSection/>
+                    <ImageSlideSection/>
+                    <AccordionSection/>
                 </div>
             </div>
         </div>
