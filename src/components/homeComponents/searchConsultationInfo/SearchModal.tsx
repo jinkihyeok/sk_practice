@@ -107,12 +107,6 @@ export default function SearchModal({
             thirdNumber: account.serviceNumber.slice(7),
         });
 
-        console.log("selectedServiceAccount", account);
-        console.log("selectedConsultationInfo", ConsultationInfoData);
-        console.log("selectedConsultationDetail", ConsultationDetailData);
-        console.log("selectedBillingInfo", BillingInfoData);
-        console.log("selectedPaymentInfo", PaymentInfoData);
-
         closeModal();
     };
 
@@ -190,7 +184,7 @@ export default function SearchModal({
                                         ))}
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody className="text-center">
                                     {searchedServiceAccounts.map((account, index) => (
                                         <tr
                                             key={index}
@@ -206,21 +200,21 @@ export default function SearchModal({
                                                         : ""
                                             }`}
                                         >
-                                            <td className="border text-center">
+                                            <td>
                                                 <input
                                                     type="checkbox"
                                                     checked={checkedAccount?.serviceNumber === account.serviceNumber}
                                                     onChange={() => handleCheckboxChange(account)}
                                                 />
                                             </td>
-                                            <td className="border text-center">{account.customerNumber}</td>
-                                            <td className="border text-center">{account.customerName}</td>
-                                            <td className="border text-center">{account.billingAccountNumber}</td>
-                                            <td className="border text-center">{account.billingCustomerNumber}</td>
-                                            <td className="border text-center">{account.billingCustomerName}</td>
-                                            <td className="border text-center">{account.serviceAccountNumber}</td>
-                                            <td className="border text-center">{account.paymentInfo}</td>
-                                            <td className="border text-center">{account.billingInfo}</td>
+                                            <td>{account.customerNumber}</td>
+                                            <td>{account.customerName}</td>
+                                            <td>{account.billingAccountNumber}</td>
+                                            <td>{account.billingCustomerNumber}</td>
+                                            <td>{account.billingCustomerName}</td>
+                                            <td>{account.serviceAccountNumber}</td>
+                                            <td>{account.paymentInfo}</td>
+                                            <td>{account.billingInfo}</td>
                                         </tr>
                                     ))}
                                     {Array(12 - searchedServiceAccounts.length)

@@ -80,6 +80,9 @@ body {
     body {
         @apply bg-background text-foreground;
     }
+    td {
+        @apply border px-1
+    }
 }
 
 
@@ -91,10 +94,18 @@ body {
     @apply bg-neutral-700 text-gray-300 font-light rounded-sm whitespace-nowrap max-w-32;
 }
 
+.btn-style-historySection {
+    @apply bg-neutral-700 text-gray-400 font-light rounded-sm whitespace-nowrap max-w-32 px-3;
+}
+
 .section-style {
     @apply rounded-sm overflow-hidden;
 }
 
 .table-header-style {
     @apply bg-indigo-300 text-white;
+}
+
+.table-body-style {
+    @apply border px-1;
 }

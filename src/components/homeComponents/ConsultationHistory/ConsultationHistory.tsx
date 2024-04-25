@@ -44,10 +44,10 @@ export default function ConsultationHistory() {
                     ))}
                 </div>
                 <div className="flex flex-row gap-3 mb-2">
-                    <button className="btn-style px-3 !text-gray-400">번호관리 이력조회</button>
-                    <button className="btn-style px-3 !text-gray-400">고객접촉이력</button>
-                    <button className="btn-style px-3 !text-gray-400">고객정보현행화</button>
-                    <button className="btn-style px-3 !text-gray-400">SMS발송</button>
+                    <button className="btn-style-historySection">번호관리 이력조회</button>
+                    <button className="btn-style-historySection">고객접촉이력</button>
+                    <button className="btn-style-historySection">고객정보현행화</button>
+                    <button className="btn-style-historySection">SMS발송</button>
                 <button
                     className="px-3 text-gray-400 flex flex-row items-center"
                     onClick={toggleItemsPerPage}>
@@ -66,20 +66,20 @@ export default function ConsultationHistory() {
                     ))}
                 </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-center whitespace-nowrap">
                 {currentItems.map((item, index) => (
                     <tr
                         key={index}
                         className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}
                     >
-                        <td className="border text-center whitespace-nowrap px-1">{item.consultationId}</td>
-                        <td className="border text-center whitespace-nowrap px-1">{item.consultationTime}</td>
-                        <td className="border text-center whitespace-nowrap px-1">{item.phoneNumber}</td>
-                        <td className="border text-center whitespace-nowrap px-1">{item.consultationType}</td>
-                        <td className="border text-start px-1 line-clamp-1">{item.memo}</td>
-                        <td className="border text-center whitespace-nowrap px-1">{item.status}</td>
-                        <td className="border text-center whitespace-nowrap px-1">{item.consultant}</td>
-                        <td className="border text-center whitespace-nowrap px-1">{item.contactType}</td>
+                        <td>{item.consultationId}</td>
+                        <td>{item.consultationTime}</td>
+                        <td>{item.phoneNumber}</td>
+                        <td>{item.consultationType}</td>
+                        <td className="text-start line-clamp-1">{item.memo}</td>
+                        <td>{item.status}</td>
+                        <td>{item.consultant}</td>
+                        <td>{item.contactType}</td>
                     </tr>
                 ))}
                 </tbody>

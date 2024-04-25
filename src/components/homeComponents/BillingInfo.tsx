@@ -23,7 +23,7 @@ export default function BillingInfoSection() {
                 <div className="overflow-y-auto max-h-[130px]">
                     <table className="table-auto w-full">
                         <thead>
-                        <tr className="table-header-style">
+                        <tr className="table-header-style sticky top-0">
                             {billingInfoTableHeaders.map((header, index) => (
                                 <th key={index} className="px-1 border">{header}</th>
                             ))}
@@ -37,10 +37,10 @@ export default function BillingInfoSection() {
                                     index % 2 === 0 ? "bg-white" : "bg-gray-50"
                                 }`}
                             >
-                                <td className="px-1 border">{info.billingDate}</td>
-                                <td className="px-1 border">{info.billingAmount.toLocaleString()}</td>
-                                <td className="px-1 border">{(info.unpaidBalance || 0).toLocaleString()}</td>
-                                <td className="px-1 border">{info.serviceCount}</td>
+                                <td className="">{info.billingDate}</td>
+                                <td>{info.billingAmount.toLocaleString()}</td>
+                                <td>{(info.unpaidBalance || 0).toLocaleString()}</td>
+                                <td>{info.serviceCount}</td>
                             </tr>
                         ))}
                         {billingInfo.length <= 6 &&

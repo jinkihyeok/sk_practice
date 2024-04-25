@@ -45,14 +45,14 @@ export default function ClientInfo() {
                                     readOnly
                                 />
                             </td>
-                            <td className="px-1 border">{consultationInfo.accountNumber}</td>
-                            <td className="px-1 border">{consultationInfo.serviceType}</td>
-                            <td className="px-1 border">{consultationInfo.serviceNumber}</td>
-                            <td className="px-1 border">{consultationInfo.serviceStatus}</td>
-                            <td className="px-1 border">{consultationInfo.ratePlan}</td>
-                            <td className="px-1 border">{consultationInfo.device}</td>
-                            <td className="px-1 border">{consultationInfo.businessNumber}</td>
-                            <td className="px-1 border">{consultationInfo.businessName}</td>
+                            <td>{consultationInfo.accountNumber}</td>
+                            <td>{consultationInfo.serviceType}</td>
+                            <td>{consultationInfo.serviceNumber}</td>
+                            <td>{consultationInfo.serviceStatus}</td>
+                            <td>{consultationInfo.ratePlan}</td>
+                            <td>{consultationInfo.device}</td>
+                            <td>{consultationInfo.businessNumber}</td>
+                            <td>{consultationInfo.businessName}</td>
                         </tr>
                     ))}
                     {Array(4 - consultationInfoList.length)
