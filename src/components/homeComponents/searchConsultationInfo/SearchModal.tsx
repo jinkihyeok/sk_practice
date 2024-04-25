@@ -167,7 +167,7 @@ export default function SearchModal({
                                     onClick={handleSearch}
                                     className="btn-style flex flex-row px-2 items-center">
                                     <h3>검색</h3>
-                                    <RightArrowIcon/>
+                                    <RightArrowIcon size={3}/>
                                 </button>
                             </div>
                         </div>
@@ -244,14 +244,14 @@ export default function SearchModal({
                         onClick={handleApply}
                         className="btn-style flex flex-row p-1">
                         <h3>적용</h3>
-                        <RightArrowIcon/>
+                        <RightArrowIcon size={3}/>
                     </button>
                     <button
                         type="button"
                         onClick={closeModal}
                         className="btn-style flex flex-row p-1">
                         <h3>닫기</h3>
-                        <RightArrowIcon/>
+                        <RightArrowIcon size={3}/>
                     </button>
                 </div>
             </div>

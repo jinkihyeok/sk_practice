@@ -138,7 +138,7 @@ export default function SearchConsultationInfo() {
                             onClick={(e) => handleSearch(e)}
                             className="flex flex-row items-center justify-between text-sm bg-neutral-700 text-gray-300 px-2 rounded ml-5">
                             <span className="whitespace-nowrap font-light">조회</span>
-                            <RightArrowIcon/>
+                            <RightArrowIcon size={3}/>
                         </button>
                     </form>
                 </div>

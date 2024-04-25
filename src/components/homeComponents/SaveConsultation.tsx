@@ -93,7 +93,7 @@ export default function SaveConsultation() {
                         <button disabled={!isServiceAccount}
                                 className="btn-style px-2 py-0.5 flex flex-row items-center">
                             <h3>저장</h3>
-                            <RightArrowIcon/>
+                            <RightArrowIcon size={3}/>
                         </button>
                     </div>
                 </div>

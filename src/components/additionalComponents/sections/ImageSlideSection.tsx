@@ -22,7 +22,7 @@ const PrevArrow: React.FC<{ onClick?: () => void }> = ({onClick}) => (
         className="absolute top-1/2 -left-10 transform -translate-y-1/2 z-10 text-black border-2 border-gray-500 rounded-full pr-2 py-2 bg-gray-300"
         onClick={onClick}
     >
-        <LeftArrowIcon/>
+        <LeftArrowIcon size={3}/>
     </button>
 );
 
@@ -31,7 +31,7 @@ const NextArrow: React.FC<{ onClick?: () => void }> = ({onClick}) => (
         className="absolute top-1/2 -right-10 transform -translate-y-1/2 z-10 text-black border-2 border-gray-500 rounded-full pr-2 py-2 bg-gray-300"
         onClick={onClick}
     >
-        <RightArrowIcon/>
+        <RightArrowIcon size={3}/>
     </button>
 );
 

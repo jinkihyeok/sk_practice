@@ -25,7 +25,7 @@ export default function ProfileImageSection() {
                 <label htmlFor="fileInput"
                        className="flex flex-row justify-center items-center text-white bg-blue-500 w-full py-2 border-2 border-gray-500 rounded-lg relative cursor-pointer">
                     <div className="absolute left-5">
-                        <ImageIcon/>
+                        <ImageIcon size={5}/>
                     </div>
                     <h3>찾기</h3>
                     <input id="fileInput" type="file" accept="image/*" onChange={handleFileChange} className="hidden"/>

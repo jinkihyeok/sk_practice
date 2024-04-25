@@ -52,7 +52,7 @@ export default function ConsultationHistory() {
                     className="px-3 text-gray-400 flex flex-row items-center"
                     onClick={toggleItemsPerPage}>
                     {showFiftyItems ? '10개씩 보기' : '50개씩 보기'}
-                    {showFiftyItems ? <UpArrowIcon /> : <DownArrowIcon />}
+                    {showFiftyItems ? <UpArrowIcon size={3}/> : <DownArrowIcon size={3}/>}
                 </button>
                 </div>
             </div>
