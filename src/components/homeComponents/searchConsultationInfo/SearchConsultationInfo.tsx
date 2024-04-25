@@ -29,17 +29,6 @@ export default function SearchConsultationInfo() {
         }));
     };
 
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        if (
-            !/[0-9]/.test(event.key) &&
-            event.key !== 'Backspace' &&
-            event.key !== 'Tab' &&
-            event.key !== 'Shift'
-        ) {
-            event.preventDefault();
-        }
-    };
-
     const handleSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
         e.stopPropagation();
@@ -81,7 +70,6 @@ export default function SearchConsultationInfo() {
                                     value={phoneNumber.secondNumber}
                                     onChange={handlePhoneNumberChange}
                                     maxLength={4}
-                                    onKeyDown={handleKeyDown}
                                 />
                                 <input
                                     type="text"
@@ -90,7 +78,6 @@ export default function SearchConsultationInfo() {
                                     value={phoneNumber.thirdNumber}
                                     onChange={handlePhoneNumberChange}
                                     maxLength={4}
-                                    onKeyDown={handleKeyDown}
                                 />
                                 <button
                                     onClick={(e) => handleSearch(e)}

@@ -68,6 +68,11 @@ export default function SearchModal({
         }
     }
 
+    const handleInputNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const {value} = e.target;
+        setInputNumber(value.replace(/[^0-9]/g, ''));
+    }
+
     const handleCheckboxChange = (account: ServiceAccount) => {
         if (checkedAccount?.serviceNumber === account.serviceNumber) {
             setCheckedAccount(null);
@@ -158,7 +163,7 @@ export default function SearchModal({
                                     className="disabled-input-style w-2/3"
                                     type="text"
                                     value={inputNumber}
-                                    onChange={(e) => setInputNumber(e.target.value)}
+                                    onChange={handleInputNumberChange}
                                     maxLength={11}
                                 />
                             </div>
