@@ -22,7 +22,7 @@ export default function ClientInfo() {
                     <thead>
                     <tr className="table-header-style">
                         {clientInfoTableHeaders.map((header, index) => (
-                            <th key={index} className="px-1 border">{header}</th>
+                            <th key={index} className="border-x">{header}</th>
                         ))}
                     </tr>
                     </thead>

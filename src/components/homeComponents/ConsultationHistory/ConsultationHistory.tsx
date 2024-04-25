@@ -60,7 +60,7 @@ export default function ConsultationHistory() {
                 <thead>
                 <tr className="table-header-style">
                     {consultationHistoryTableHeaders[activeTab].map((header, index) => (
-                        <th key={index} className="whitespace-nowrap">
+                        <th key={index} className="whitespace-nowrap border">
                             {header}
                         </th>
                     ))}

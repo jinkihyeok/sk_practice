@@ -42,7 +42,7 @@ export default function SearchConsultationInfo() {
                 <div className="flex flex-row w-full items-center border-2 py-2 text-neutral-500">
                     <form className="flex flex-row justify-between items-center w-full ml-5 mr-3">
                         <div className="flex flex-row items-center gap-2 flex-grow">
-                            <h3 className="whitespace-nowrap text-end">조회구분</h3>
+                            <h3 className="input-title">조회구분</h3>
                             <div className="flex flex-grow">
                                 <select className="enabled-input-style flex-grow"
                                         value={selectedOption?.value}
@@ -87,7 +87,7 @@ export default function SearchConsultationInfo() {
                             </div>
                         </div>
                         <div className="flex flex-row flex-grow items-center gap-2 ml-3">
-                            <h3 className="whitespace-nowrap text-end">고객명</h3>
+                            <h3 className="input-title">고객명</h3>
                             <div className="flex flex-row flex-grow">
                                 <input
                                     type="text"
@@ -104,7 +104,7 @@ export default function SearchConsultationInfo() {
                             </div>
                         </div>
                         <div className="flex flex-row flex-grow items-center gap-2 ml-1">
-                            <h3 className="whitespace-nowrap text-end">생년/법인/사업자 번호</h3>
+                            <h3 className="input-title">생년/법인/사업자 번호</h3>
                             <input
                                 type="text"
                                 className="flex-grow disabled-input-style"

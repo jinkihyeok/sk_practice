@@ -34,7 +34,7 @@ export default function SaveConsultation() {
                 <div className="flex flex-row h-2/3">
                     <div className="flex flex-col gap-1 w-2/5 m-1">
                         <div className="flex flex-row gap-1">
-                            <h3 className="w-1/6 text-end whitespace-nowrap">검색</h3>
+                            <h3 className="w-1/6 input-title">검색</h3>
                             <div className="flex flex-row gap-1 w-5/6">
                                 <input disabled={!isServiceAccount} className="disabled-input-style !bg-white flex-grow"/>
                                 <button
@@ -44,7 +44,7 @@ export default function SaveConsultation() {
                             </div>
                         </div>
                         <div className="flex flex-row gap-1 flex-grow">
-                            <h3 className="w-1/6 text-end whitespace-nowrap">메모</h3>
+                            <h3 className="w-1/6 input-title">메모</h3>
                             <textarea
                                 disabled={!isServiceAccount}
                                 className="w-5/6 border resize-none scrollbar p-1 outline-none"/>
@@ -58,16 +58,16 @@ export default function SaveConsultation() {
                 </div>
                 <div className="flex flex-row w-full justify-end items-center gap-1">
                     <div className="flex flex-row justify-end gap-1 w-1/2">
-                        <h3 className="whitespace-nowrap text-end w-1/6">통화자명</h3>
-                        <input disabled={!isServiceAccount} className="disabled-input-style !bg-purple-100 min-w-0 flex-grow"/>
-                        <h3 className="whitespace-nowrap text-end">연락처</h3>
-                        <input disabled={!isServiceAccount} className="disabled-input-style !bg-purple-100 min-w-0 flex-grow"/>
+                        <h3 className="w-1/6 input-title">통화자명</h3>
+                        <input disabled={!isServiceAccount} className="enabled-input-style min-w-0 flex-grow"/>
+                        <h3 className="input-title">연락처</h3>
+                        <input disabled={!isServiceAccount} className="enabled-input-style min-w-0 flex-grow"/>
                     </div>
                     <div className="flex flex-row justify-end items-center gap-1 w-1/2">
-                        <h3 className="whitespace-nowrap text-end">접촉구분</h3>
+                        <h3 className="input-title">접촉구분</h3>
                         <select
                             disabled={!isServiceAccount}
-                            className="disabled-input-style !bg-purple-100 flex-grow"
+                            className="enabled-input-style flex-grow"
                             value={contactType?.value}
                             onChange={handleContactTypeChange}
                             name="contactType">
@@ -77,10 +77,10 @@ export default function SaveConsultation() {
                                 </option>
                             ))}
                         </select>
-                        <h3 className="whitespace-nowrap">관계</h3>
+                        <h3 className="input-title">관계</h3>
                         <select
                             disabled={!isServiceAccount}
-                            className="disabled-input-style !bg-purple-100 flex-grow"
+                            className="enabled-input-style flex-grow"
                             value={relation?.value}
                             onChange={handleRelationChange}
                             name="relation">

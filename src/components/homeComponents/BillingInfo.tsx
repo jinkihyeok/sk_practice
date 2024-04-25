@@ -26,7 +26,7 @@ export default function BillingInfoSection() {
                         <thead>
                         <tr className="table-header-style sticky top-0">
                             {billingInfoTableHeaders.map((header, index) => (
-                                <th key={index} className="px-1 border">{header}</th>
+                                <th key={index} className="border-x">{header}</th>
                             ))}
                         </tr>
                         </thead>
@@ -52,7 +52,7 @@ export default function BillingInfoSection() {
                 <div className="flex flex-col flex-grow justify-center gap-2 p-1 bg-gray-200">
                     <div className="flex flex-row w-full gap-1">
                         <div className="flex flex-row gap-1 items-center w-1/3">
-                            <h3 className="whitespace-nowrap text-end w-1/3">미납월수</h3>
+                            <h3 className="w-1/3 input-title">미납월수</h3>
                             <input
                                 className="disabled-input-style text-end w-2/3"
                                 type="text"
@@ -61,7 +61,7 @@ export default function BillingInfoSection() {
                             />
                         </div>
                         <div className="flex flex-row gap-1 items-center w-1/3">
-                            <h3 className="whitespace-nowrap text-end w-1/3">미납금액</h3>
+                            <h3 className="input-title w-1/3">미납금액</h3>
                             <input
                                 className="disabled-input-style text-end w-2/3"
                                 type="text"
@@ -81,11 +81,11 @@ export default function BillingInfoSection() {
                     </div>
                     <div className="flex flex-row w-full gap-1">
                         <div className="flex flex-row gap-1 items-center w-1/3">
-                            <h3 className="whitespace-nowrap text-end w-1/3">당월청구</h3>
+                            <h3 className="input-title w-1/3">당월청구</h3>
                             <input className="disabled-input-style w-2/3" type="text"/>
                         </div>
                         <div className="flex flex-row gap-1 items-center w-1/3">
-                            <h3 className="whitespace-nowrap text-end w-1/3">후청구금액</h3>
+                            <h3 className="input-title w-1/3">후청구금액</h3>
                             <input className="disabled-input-style w-2/3" type="text"/>
                         </div>
                         <div className="flex flex-row justify-end gap-2 w-1/3">

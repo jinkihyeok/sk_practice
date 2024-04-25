@@ -12,7 +12,7 @@ export default function ConsultDetailInfo() {
             <div className="flex justify-center items-start p-2 bg-gray-200">
                 <div className="flex flex-col gap-1 w-1/2">
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">소속법인명</h3>
+                        <h3 className="w-1/4 input-title">소속법인명</h3>
                         <input
                             type="text"
                             className="disabled-input-style w-3/4"
@@ -21,7 +21,7 @@ export default function ConsultDetailInfo() {
                         />
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">가입/해지일</h3>
+                        <h3 className="w-1/4 input-title">가입/해지일</h3>
                         <div className="w-3/4">
                             <input
                                 type="text"
@@ -33,21 +33,21 @@ export default function ConsultDetailInfo() {
                         </div>
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">서비스상태</h3>
+                        <h3 className="w-1/4 input-title">서비스상태</h3>
                         <div className="flex flex-col w-3/4">
                             <input type="text" className="disabled-input-style text-center" value={consultationDetail?.serviceStatus} readOnly />
                             <input type="text" className="disabled-input-style" value={consultationDetail?.subscriptionType} readOnly />
                         </div>
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">제조사/OS</h3>
+                        <h3 className="w-1/4 input-title">제조사/OS</h3>
                         <div className="w-3/4">
                             <input type="text" className="disabled-input-style w-1/2" value={consultationDetail?.manufacturer} readOnly />
                             <input type="text" className="disabled-input-style text-center w-1/2" value={consultationDetail?.os} readOnly />
                         </div>
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">일련/사용일</h3>
+                        <h3 className="w-1/4 input-title">일련/사용일</h3>
                         <div className="w-3/4">
                             <input type="text" className="disabled-input-style w-1/3" value={consultationDetail?.serialNumber} readOnly />
                             <input type="text" className="disabled-input-style w-1/3" value="" readOnly />
@@ -55,14 +55,14 @@ export default function ConsultDetailInfo() {
                         </div>
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">방식</h3>
+                        <h3 className="w-1/4 input-title">방식</h3>
                         <div className="w-3/4">
                             <input type="text" className="disabled-input-style w-1/2" value={consultationDetail?.networkType} readOnly />
                             <input type="text" className="disabled-input-style w-1/2" value="" readOnly />
                         </div>
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">번호이동</h3>
+                        <h3 className="w-1/4 input-title">번호이동</h3>
                         <div className="w-3/4">
                             <input type="text" className="disabled-input-style w-2/3" value={consultationDetail?.numberPortability} readOnly />
                             <input type="text" className="disabled-input-style w-1/3" value="" readOnly />
@@ -72,7 +72,7 @@ export default function ConsultDetailInfo() {
 
                 <div className="flex flex-col gap-1 w-1/2">
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">복지할인</h3>
+                        <h3 className="w-1/4 input-title">복지할인</h3>
                         <div className="flex flex-row gap-1 w-3/4">
                             <input type="text" className="disabled-input-style w-4/5" value={consultationDetail?.welfareDiscount} readOnly />
                             <button
@@ -81,15 +81,15 @@ export default function ConsultDetailInfo() {
                         </div>
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">요금제</h3>
+                        <h3 className="w-1/4 input-title">요금제</h3>
                         <input type="text" className="disabled-input-style w-3/4" value={consultationDetail?.planName} readOnly />
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">이용종류</h3>
+                        <h3 className="w-1/4 input-title">이용종류</h3>
                         <input type="text" className="disabled-input-style text-center w-3/4" value={consultationDetail?.usageType} readOnly />
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">SIM유형</h3>
+                        <h3 className="w-1/4 input-title">SIM유형</h3>
                         <div className="w-3/4 flex flex-row">
                             <input type="text" className="disabled-input-style w-1/5" value={consultationDetail?.simType} readOnly />
                             <input type="text" className="disabled-input-style w-1/5" value={consultationDetail?.simName} readOnly />
@@ -98,18 +98,18 @@ export default function ConsultDetailInfo() {
                         </div>
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">단말기애칭</h3>
+                        <h3 className="w-1/4 input-title">단말기애칭</h3>
                         <div className="w-3/4">
                             <input type="text" className="disabled-input-style w-1/2" value={consultationDetail?.deviceNickname} readOnly />
                             <input type="text" className="disabled-input-style w-1/2" value={consultationDetail?.deviceType} readOnly />
                         </div>
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">미성년자</h3>
+                        <h3 className="w-1/4 input-title">미성년자</h3>
                         <input type="text" className="disabled-input-style text-center w-3/4" value={consultationDetail?.isMinor} readOnly />
                     </div>
                     <div className="flex flex-row gap-1">
-                        <h3 className="w-1/4 text-end">법정대리인</h3>
+                        <h3 className="w-1/4 input-title">법정대리인</h3>
                         <input type="text" className="disabled-input-style w-3/4" value={consultationDetail?.legalGuardian} readOnly />
                     </div>
                     <div className="flex flex-row justify-end gap-2 ml-12">
