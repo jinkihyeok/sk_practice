@@ -3,6 +3,7 @@ import SectionHeader from "../common/SectionHeader";
 import {GlobalStateContext} from "../../contexts/GlobalStateContext";
 import {billingInfoTableHeaders} from "../../libs/constants";
 import {BillingInfo} from "../../types";
+import {GenerateEmptyArray} from "../../utils/GenerateEmptyArray";
 
 export default function BillingInfoSection() {
     const {state} = useContext(GlobalStateContext);
@@ -44,20 +45,7 @@ export default function BillingInfoSection() {
                             </tr>
                         ))}
                         {billingInfo.length <= 6 &&
-                            Array(6 - billingInfo.length)
-                                .fill(null)
-                                .map((_, index) => (
-                                    <tr
-                                        key={`empty-${index}`}
-                                        className={`border-b border-gray-200 h-5 ${
-                                            (billingInfo.length + index) % 2 === 0 ? "bg-white" : "bg-gray-50"
-                                        }`}
-                                    >
-                                        {Array.from({ length: 4 }).map((_, cellIndex) => (
-                                            <td key={cellIndex} className={`px-1 ${cellIndex === 0 ? "" : "border"}`}></td>
-                                        ))}
-                                    </tr>
-                                ))}
+                        <GenerateEmptyArray arrayLength={6} dataLength={billingInfo.length} columnLength={4}/>}
                         </tbody>
                     </table>
                 </div>
@@ -66,7 +54,7 @@ export default function BillingInfoSection() {
                         <div className="flex flex-row gap-1 items-center w-1/3">
                             <h3 className="whitespace-nowrap text-end w-1/3">미납월수</h3>
                             <input
-                                className="input-style text-end w-2/3"
+                                className="disabled-input-style text-end w-2/3"
                                 type="text"
                                 value={unpaidCount.toString()}
                                 readOnly
@@ -75,7 +63,7 @@ export default function BillingInfoSection() {
                         <div className="flex flex-row gap-1 items-center w-1/3">
                             <h3 className="whitespace-nowrap text-end w-1/3">미납금액</h3>
                             <input
-                                className="input-style text-end w-2/3"
+                                className="disabled-input-style text-end w-2/3"
                                 type="text"
                                 value={unpaidAmount.toLocaleString()}
                                 readOnly
@@ -94,11 +82,11 @@ export default function BillingInfoSection() {
                     <div className="flex flex-row w-full gap-1">
                         <div className="flex flex-row gap-1 items-center w-1/3">
                             <h3 className="whitespace-nowrap text-end w-1/3">당월청구</h3>
-                            <input className="input-style w-2/3" type="text"/>
+                            <input className="disabled-input-style w-2/3" type="text"/>
                         </div>
                         <div className="flex flex-row gap-1 items-center w-1/3">
                             <h3 className="whitespace-nowrap text-end w-1/3">후청구금액</h3>
-                            <input className="input-style w-2/3" type="text"/>
+                            <input className="disabled-input-style w-2/3" type="text"/>
                         </div>
                         <div className="flex flex-row justify-end gap-2 w-1/3">
                             <button

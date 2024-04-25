@@ -1,7 +1,7 @@
 import SectionHeader from "../../common/SectionHeader";
 import React, {useContext, useState} from "react";
 import {firstNumberOptions, serviceNumberOptions} from "../../../libs/constants";
-import {RightArrowIcon} from "../../ui/Icons";
+import {RightArrowIcon, SearchIcon} from "../../ui/Icons";
 import SearchModal from "./SearchModal";
 import {PhoneNumber, SelectOptionType} from "../../../types";
 import {GlobalStateContext} from "../../../contexts/GlobalStateContext";
@@ -55,7 +55,7 @@ export default function SearchConsultationInfo() {
                         <div className="flex flex-row items-center gap-2 flex-grow">
                             <h3 className="whitespace-nowrap">조회구분</h3>
                             <div className="flex flex-grow">
-                                <select className="flex-grow border border-gray-300 bg-purple-100 outline-none"
+                                <select className="enabled-input-style flex-grow"
                                         value={selectedOption?.value}
                                         onChange={handleSelectChange}>
                                     {serviceNumberOptions.map(option => (
@@ -64,7 +64,7 @@ export default function SearchConsultationInfo() {
                                         </option>
                                     ))}
                                 </select>
-                                <select className="w-1/6 border border-gray-300 bg-purple-100 outline-none text-center"
+                                <select className="enabled-input-style w-1/6 text-center"
                                         name="firstNumber"
                                         value={phoneNumber.firstNumber}
                                         onChange={handlePhoneNumberChange}>
@@ -77,7 +77,7 @@ export default function SearchConsultationInfo() {
                                 <input
                                     type="text"
                                     name="secondNumber"
-                                    className="w-1/6 border border-gray-300 bg-purple-100 outline-none text-center"
+                                    className="enabled-input-style w-1/6 text-center"
                                     value={phoneNumber.secondNumber}
                                     onChange={handlePhoneNumberChange}
                                     maxLength={4}
@@ -86,7 +86,7 @@ export default function SearchConsultationInfo() {
                                 <input
                                     type="text"
                                     name="thirdNumber"
-                                    className="w-1/6 border border-gray-300 bg-purple-100 outline-none text-center"
+                                    className="enabled-input-style w-1/6 text-center"
                                     value={phoneNumber.thirdNumber}
                                     onChange={handlePhoneNumberChange}
                                     maxLength={4}
@@ -95,12 +95,7 @@ export default function SearchConsultationInfo() {
                                 <button
                                     onClick={(e) => handleSearch(e)}
                                     className="border p-1 bg-gray-100 rounded">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                         strokeWidth="1.5"
-                                         stroke="currentColor" className="w-3 h-3">
-                                        <path strokeLinecap="round" strokeLinejoin="round"
-                                              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
-                                    </svg>
+                                    <SearchIcon size={3}/>
                                 </button>
                             </div>
                         </div>
@@ -109,13 +104,13 @@ export default function SearchConsultationInfo() {
                             <div className="flex flex-row flex-grow">
                                 <input
                                     type="text"
-                                    className="flex-grow input-style"
+                                    className="flex-grow disabled-input-style"
                                     value={state.selectedServiceAccount?.customerName}
                                     disabled
                                 />
                                 <input
                                     type="text"
-                                    className="w-8 input-style"
+                                    className="w-8 disabled-input-style"
                                     value={state.selectedServiceAccount?.gender}
                                     disabled
                                 />
@@ -125,7 +120,7 @@ export default function SearchConsultationInfo() {
                             <h3 className="whitespace-nowrap">생년/법인/사업자 번호</h3>
                             <input
                                 type="text"
-                                className="flex-grow input-style"
+                                className="flex-grow disabled-input-style"
                                 value={state.selectedServiceAccount?.customerNumber.replace(/\d/g, '*')}
                                 disabled
                             />
@@ -136,7 +131,7 @@ export default function SearchConsultationInfo() {
                         </div>
                         <button
                             onClick={(e) => handleSearch(e)}
-                            className="flex flex-row items-center justify-between text-sm bg-neutral-700 text-gray-300 px-2 rounded ml-5">
+                            className="btn-style flex flex-row items-center justify-between text-sm px-2 ml-5">
                             <span className="whitespace-nowrap font-light">조회</span>
                             <RightArrowIcon size={3}/>
                         </button>

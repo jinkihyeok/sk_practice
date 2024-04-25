@@ -3,6 +3,7 @@ import {useContext, useState} from "react";
 import { GlobalStateContext } from "../../contexts/GlobalStateContext";
 import {clientInfoTableHeaders} from "../../libs/constants";
 import {ConsultationInfo} from "../../types";
+import {GenerateEmptyArray} from "../../utils/GenerateEmptyArray";
 
 export default function ClientInfo() {
     const { state } = useContext(GlobalStateContext);
@@ -55,20 +56,7 @@ export default function ClientInfo() {
                             <td>{consultationInfo.businessName}</td>
                         </tr>
                     ))}
-                    {Array(4 - consultationInfoList.length)
-                        .fill(null)
-                        .map((_, index) => (
-                            <tr
-                                key={`empty-${index}`}
-                                className={`border-b border-gray-200 h-5 ${
-                                    (consultationInfoList.length + index) % 2 === 0 ? "bg-white" : "bg-gray-50"
-                                }`}
-                            >
-                                {Array.from({length: 9}).map((_, cellIndex) => (
-                                    <td key={cellIndex} className={`px-1 ${cellIndex === 0 ? "" : "border"}`}></td>
-                                ))}
-                            </tr>
-                        ))}
+                    <GenerateEmptyArray arrayLength={4} dataLength={consultationInfoList.length} columnLength={9} />
                     </tbody>
                 </table>
             </div>

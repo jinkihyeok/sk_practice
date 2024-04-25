@@ -9,6 +9,7 @@ import {ConsultationInfoData} from "../../../dummyData/ConsultationInfoData";
 import {ConsultationDetailData} from "../../../dummyData/ConsultationDetailData";
 import {BillingInfoData} from "../../../dummyData/BillingInfoData";
 import {PaymentInfoData} from "../../../dummyData/PaymentInfoData";
+import {GenerateEmptyArray} from "../../../utils/GenerateEmptyArray";
 
 interface SearchModalProps {
     setIsModalOpen: (isOpen: boolean) => void;
@@ -154,7 +155,7 @@ export default function SearchModal({
                                     ))}
                                 </select>
                                 <input
-                                    className="input-style w-2/3"
+                                    className="disabled-input-style w-2/3"
                                     type="text"
                                     value={inputNumber}
                                     onChange={(e) => setInputNumber(e.target.value)}
@@ -217,21 +218,7 @@ export default function SearchModal({
                                             <td>{account.billingInfo}</td>
                                         </tr>
                                     ))}
-                                    {Array(12 - searchedServiceAccounts.length)
-                                        .fill(null)
-                                        .map((_, index) => (
-                                            <tr
-                                                key={`empty-${index}`}
-                                                className={`border-b border-gray-200 h-5 ${
-                                                    (searchedServiceAccounts.length + index) % 2 === 0 ? "bg-white" : "bg-gray-50"
-                                                }`}
-                                            >
-                                                {Array.from({length: 9}).map((_, cellIndex) => (
-                                                    <td key={cellIndex}
-                                                        className={`px-1 ${cellIndex === 0 ? "" : "border"}`}></td>
-                                                ))}
-                                            </tr>
-                                        ))}
+                                    <GenerateEmptyArray arrayLength={12} dataLength={searchedServiceAccounts.length} columnLength={9}/>
                                     </tbody>
                                 </table>
                             </div>

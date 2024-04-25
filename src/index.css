@@ -85,8 +85,11 @@ body {
     }
 }
 
+.enabled-input-style {
+    @apply border border-gray-300 bg-purple-100 outline-none;
+}
 
-.input-style {
+.disabled-input-style {
     @apply border border-gray-300 bg-gray-200 px-1 text-xs outline-none;
 }
 
@@ -95,7 +98,7 @@ body {
 }
 
 .btn-style-historySection {
-    @apply bg-neutral-700 text-gray-400 font-light rounded-sm whitespace-nowrap max-w-32 px-3;
+    @apply btn-style !text-gray-400 px-3;
 }
 
 .section-style {
