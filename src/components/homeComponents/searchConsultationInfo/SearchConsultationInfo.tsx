@@ -29,9 +29,16 @@ export default function SearchConsultationInfo() {
         }));
     };
 
-    const handleSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        e.preventDefault();
-        e.stopPropagation();
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            handleSearch(event);
+        }
+    };
+
+    const handleSearch = (event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>) => {
+        event.preventDefault();
+        event.stopPropagation();
         setIsModalOpen(true);
     };
 
@@ -77,6 +84,7 @@ export default function SearchConsultationInfo() {
                                     className="enabled-input-style w-1/6 text-center"
                                     value={phoneNumber.thirdNumber}
                                     onChange={handlePhoneNumberChange}
+                                    onKeyDown={handleKeyDown}
                                     maxLength={4}
                                 />
                                 <button
