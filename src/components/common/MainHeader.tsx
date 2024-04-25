@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export default function MainHeader({title, linkTitle, linkPath}: HeaderProps) {
     return (
-        <header className="flex flex-row justify-between py-1">
+        <header className="flex flex-row justify-between py-1 text-sm">
             <div className="flex flex-row gap-1 items-center">
             <HeaderIcon size={5} />
             <h1 className="font-bold">{title}</h1>

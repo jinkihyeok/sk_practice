@@ -78,11 +78,15 @@ body {
         @apply border-border;
     }
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground text-xs;
     }
     td {
         @apply border px-1
     }
+}
+
+.input-title {
+    @apply whitespace-nowrap text-end;
 }
 
 .enabled-input-style {

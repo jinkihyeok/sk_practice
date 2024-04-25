@@ -17,7 +17,7 @@ export default function ClientInfo() {
     return (
         <div className="section-style">
             <SectionHeader title="고객상담 정보" />
-            <div className="overflow-y-auto text-xs" style={{ maxHeight: "200px" }}>
+            <div className="overflow-y-auto" style={{ maxHeight: "200px" }}>
                 <table className="table-auto w-full">
                     <thead>
                     <tr className="table-header-style">

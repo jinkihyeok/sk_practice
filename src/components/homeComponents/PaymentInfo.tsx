@@ -9,7 +9,7 @@ export default function PaymentInfo() {
     return (
         <div className="section-style col-span-2">
             <SectionHeader title="납부정보"/>
-            <div className="flex flex-col items-center justify-start w-full p-2 text-xs bg-gray-200">
+            <div className="flex flex-col items-center justify-start w-full p-2 bg-gray-200">
                 <div className="flex flex-col w-full">
                     <div className="flex flex-row gap-1">
                         <h3 className="w-1/5 whitespace-nowrap text-end">청구서발행유형</h3>

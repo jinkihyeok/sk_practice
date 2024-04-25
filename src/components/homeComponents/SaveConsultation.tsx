@@ -30,7 +30,7 @@ export default function SaveConsultation() {
     return (
         <div className="section-style col-span-3">
             <SectionHeader title="상담이력저장"/>
-            <div className="flex flex-col w-full h-full text-xs">
+            <div className="flex flex-col w-full h-full">
                 <div className="flex flex-row h-2/3">
                     <div className="flex flex-col gap-1 w-2/5 m-1">
                         <div className="flex flex-row gap-1">

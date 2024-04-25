@@ -26,7 +26,7 @@ export default function ConsultationHistory() {
 
 
     return (
-        <div className="mt-4 text-xs">
+        <div className="mt-4">
             <div className="flex justify-between">
                 <div className="flex flex-row items-center">
                     {consultationHistoryTabs.map((tab, index) => (

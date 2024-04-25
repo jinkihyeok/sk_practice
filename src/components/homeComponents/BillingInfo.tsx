@@ -18,7 +18,7 @@ export default function BillingInfoSection() {
     }, 0);
 
     return (
-        <div className="section-style col-span-1 flex flex-col text-xs">
+        <div className="section-style col-span-1 flex flex-col">
             <SectionHeader title="청구정보"/>
             <div className="flex flex-col w-full flex-grow">
                 <div className="overflow-y-auto max-h-[130px]">
@@ -49,7 +49,7 @@ export default function BillingInfoSection() {
                         </tbody>
                     </table>
                 </div>
-                <div className="flex flex-col flex-grow justify-center gap-2 text-xs p-1 bg-gray-200">
+                <div className="flex flex-col flex-grow justify-center gap-2 p-1 bg-gray-200">
                     <div className="flex flex-row w-full gap-1">
                         <div className="flex flex-row gap-1 items-center w-1/3">
                             <h3 className="whitespace-nowrap text-end w-1/3">미납월수</h3>

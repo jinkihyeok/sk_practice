@@ -9,7 +9,7 @@ export default function ConsultDetailInfo() {
     return (
         <div className="section-style col-span-1">
             <SectionHeader title="고객상담 상세정보"/>
-            <div className="flex justify-center items-start p-2 text-xs bg-gray-200">
+            <div className="flex justify-center items-start p-2 bg-gray-200">
                 <div className="flex flex-col gap-1 w-1/2">
                     <div className="flex flex-row gap-1">
                         <h3 className="w-1/4 text-end">소속법인명</h3>

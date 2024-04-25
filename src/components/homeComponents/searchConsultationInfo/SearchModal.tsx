@@ -136,7 +136,7 @@ export default function SearchModal({
                 onClick={handleBackgroundClick}
                 className="fixed inset-0 bg-black opacity-50">
             </div>
-            <div className="bg-white w-2/3 h-[460px] p-4 rounded shadow-lg z-10 relative text-xs flex flex-col">
+            <div className="bg-white w-2/3 h-[460px] p-4 rounded shadow-lg z-10 relative flex flex-col">
                 <button
                     className="absolute top-2 right-4 text-gray-500 hover:text-gray-800"
                     onClick={closeModal}>
@@ -150,7 +150,7 @@ export default function SearchModal({
                     <div className="flex flex-col gap-3 h-full">
                         <div className="flex flex-row w-full px-2 py-1 border">
                             <div className="flex flex-row px-2 w-3/5">
-                                <select className="border border-gray-300 bg-purple-100 outline-none w-1/3"
+                                <select className="enabled-input-style w-1/3"
                                         value={selectedOption?.value}
                                         onChange={handleSelectChange}>
                                     {serviceNumberOptions.map(option => (

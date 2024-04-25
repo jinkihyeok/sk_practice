@@ -8,7 +8,7 @@ import AccordionSection from "../components/additionalComponents/sections/Accord
 
 const Additional: React.FC = () => {
     return (
-        <div className="mx-auto w-full flex flex-col">
+        <div className="mx-auto w-full flex flex-col text-sm">
             <MainHeader title="추가 페이지" linkTitle="돌아가기" linkPath="/"/>
             <div className="flex flex-col gap-3 py-10">
                 <SearchBarSection/>
