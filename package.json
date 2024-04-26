@@ -12,6 +12,7 @@
     "@types/node": "^20.12.7",
     "@types/react": "^18.2.75",
     "@types/react-dom": "^18.2.24",
+    "@vercel/speed-insights": "^1.0.10",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.1.7",
