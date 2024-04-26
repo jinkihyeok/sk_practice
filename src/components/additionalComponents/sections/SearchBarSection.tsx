@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useLocaleState} from "../../../contexts/LocaleStateContext";
 
 export default function SearchBarSection() {
@@ -9,12 +9,19 @@ export default function SearchBarSection() {
         alert("메뉴 검색");
     };
 
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        if (event.ctrlKey && event.key.toLowerCase() === 'k') {
+    const handleKeyDown = (event: KeyboardEvent) => {
+        if ((event.ctrlKey && event.key.toLowerCase() === 'k') || event.key === 'ㅏ') {
             event.preventDefault();
             handleSearch();
         }
     };
+
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
 
     const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setLocale(event.target.value as "ko" | "en");
@@ -29,7 +36,6 @@ export default function SearchBarSection() {
                         type="text"
                         placeholder="Ctrl + K 검색"
                         className="border-2 border-gray-500 px-2 py-1 rounded-lg"
-                        onKeyDown={handleKeyDown}
                     />
                     <button
                         className="text-white bg-blue-500 px-5 border-2 border-gray-500 rounded-lg"
