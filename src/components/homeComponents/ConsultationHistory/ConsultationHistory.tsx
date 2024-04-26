@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {consultationHistoryTableHeaders, consultationHistoryTabs} from "../../../libs/constants";
-import Pagination from "./Pagination";
 import consultationHistoryData from '../../../dummyData/ConsultationHistoryData.json';
 import {ConsultationHistoryType} from "../../../types";
 import {DownArrowIcon, UpArrowIcon} from "../../ui/Icons";
@@ -9,21 +8,29 @@ const consultationHistory: ConsultationHistoryType[] = consultationHistoryData a
 
 export default function ConsultationHistory() {
     const [activeTab, setActiveTab] = useState(0);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(10);
+    const [itemsPerScroll, setItemsPerScroll] = useState(10);
     const [showFiftyItems, setShowFiftyItems] = useState(false);
-
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = consultationHistory.slice(indexOfFirstItem, indexOfLastItem);
-    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
     const toggleItemsPerPage = () => {
         setShowFiftyItems(!showFiftyItems);
-        setItemsPerPage(showFiftyItems ? 10 : 50);
-        setCurrentPage(1);
+        setItemsPerScroll(showFiftyItems ? 10 : 50);
     };
 
+    const [renderedItems, setRenderedItems] = useState<ConsultationHistoryType[]>(consultationHistory.slice(0, 50));
+
+    function handleScroll(event: React.UIEvent<HTMLElement>) {
+        const tbody = event.currentTarget;
+        const scrollHeight = tbody.scrollHeight;
+        const scrollTop = tbody.scrollTop;
+        const clientHeight = tbody.clientHeight;
+
+        if (scrollTop + clientHeight >= scrollHeight) {
+            setRenderedItems(prevItems => [
+                ...prevItems,
+                ...consultationHistory.slice(prevItems.length, prevItems.length + itemsPerScroll)
+            ]);
+        }
+    }
 
     return (
         <div className="mt-4">
@@ -48,48 +55,46 @@ export default function ConsultationHistory() {
                     <button className="btn-style-historySection">고객접촉이력</button>
                     <button className="btn-style-historySection">고객정보현행화</button>
                     <button className="btn-style-historySection">SMS발송</button>
-                <button
-                    className="px-3 text-gray-400 flex flex-row items-center"
-                    onClick={toggleItemsPerPage}>
-                    {showFiftyItems ? '10개씩 보기' : '50개씩 보기'}
-                    {showFiftyItems ? <UpArrowIcon size={3}/> : <DownArrowIcon size={3}/>}
-                </button>
+                    <button
+                        className="px-3 text-gray-400 flex flex-row items-center"
+                        onClick={toggleItemsPerPage}>
+                        {showFiftyItems ? '10개씩 보기' : '50개씩 보기'}
+                        {showFiftyItems ? <UpArrowIcon size={3}/> : <DownArrowIcon size={3}/>}
+                    </button>
                 </div>
             </div>
-            <table className="table-auto w-full">
-                <thead>
-                <tr className="table-header-style">
-                    {consultationHistoryTableHeaders[activeTab].map((header, index) => (
-                        <th key={index} className="whitespace-nowrap border">
-                            {header}
-                        </th>
-                    ))}
-                </tr>
-                </thead>
-                <tbody className="text-center whitespace-nowrap">
-                {currentItems.map((item, index) => (
-                    <tr
-                        key={index}
-                        className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}
-                    >
-                        <td>{item.consultationId}</td>
-                        <td>{item.consultationTime}</td>
-                        <td>{item.phoneNumber}</td>
-                        <td>{item.consultationType}</td>
-                        <td className="text-start line-clamp-1">{item.memo}</td>
-                        <td>{item.status}</td>
-                        <td>{item.consultant}</td>
-                        <td>{item.contactType}</td>
+            <div
+                onScroll={handleScroll}
+                className={`overflow-y-auto ${showFiftyItems ? 'max-h-[626px]' : 'max-h-[220px]'}`}>
+                <table className="table-auto w-full">
+                    <thead>
+                    <tr className="table-header-style sticky top-0">
+                        {consultationHistoryTableHeaders[activeTab].map((header, index) => (
+                            <th key={index} className="whitespace-nowrap border-x">
+                                {header}
+                            </th>
+                        ))}
                     </tr>
-                ))}
-                </tbody>
-            </table>
-            <Pagination
-                itemsPerPage={itemsPerPage}
-                totalItems={consultationHistory.length}
-                paginate={paginate}
-                currentPage={currentPage}
-            />
+                    </thead>
+                    <tbody className="text-center whitespace-nowrap">
+                    {renderedItems.map((item, index) => (
+                        <tr
+                            key={index}
+                            className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}
+                        >
+                            <td>{item.consultationId}</td>
+                            <td>{item.consultationTime}</td>
+                            <td>{item.phoneNumber}</td>
+                            <td>{item.consultationType}</td>
+                            <td className="text-start line-clamp-1">{item.memo}</td>
+                            <td>{item.status}</td>
+                            <td>{item.consultant}</td>
+                            <td>{item.contactType}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }

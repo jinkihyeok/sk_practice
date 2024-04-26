@@ -142,7 +142,7 @@ export default function SearchModal({
                     onClick={closeModal}>
                     <span className="text-2xl">&times;</span>
                 </button>
-                <div className="modal-header">
+                <div>
                     <h2 className="text-sm mb-4">고객청구서비스정보조회</h2>
                 </div>
                 <div className="section-style flex-grow flex-flex-col">
